@@ -10,11 +10,45 @@
 /** REPO CARD                      *
 /********************************* */
 .Repo-List>.Repo-Card {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
     margin-bottom: 2.5rem;
     background-color: var(--bg-secondary);
+    border-radius: 8px;
 }
 
-.Repo-List>.Repo-Card>.Repo-Title {
+.Repo-List>.Repo-Card>.Repo-Card__Header>.Repo-Card__Title {
     text-transform: capitalize;
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons>.Repo-Card__Stars,
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons>.Repo-Card__Forks,
+.Repo-List>.Repo-Card>.Repo-Card__Footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Footer p {
+    margin-bottom: 0;
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Stats,
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons>.Repo-Card__Stars svg {
+    margin-top: 4px;
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons>.Repo-Card__Forks svg {
+    margin-top: 3px;
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons svg {
+    margin-right: .5rem;
 }

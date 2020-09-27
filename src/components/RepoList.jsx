@@ -13,18 +13,26 @@ import './styles/RepoList.css';
 function RepoList({ repositories }) {
 	const RepoCards = repositories.map((repo) => (
 		<li className="Repo-Card">
-			<h3 className="Repo-Title">{repo.name}</h3>
-			<p>{repo.description}</p>
-			<p>Language: {repo.language}</p>
-			<p>Created: {moment(repo.created_at).calendar()}</p>
-			<p>
-				<StarIcon />
-				{repo.stargazers_count}
-			</p>
-			<p>
-				<ForkIcon />
-				{repo.forks_count}
-			</p>
+			<div className="Repo-Card__Header">
+				<h3 className="Repo-Card__Title">{repo.name}</h3>
+				<p>{repo.description}</p>
+			</div>
+			<div className="Repo-Card__Footer">
+				<div className="Repo-Card__Stats">
+					<p>Language: {repo.language}</p>
+					<p>Created: {moment(repo.created_at).calendar()}</p>
+				</div>
+				<div className="Repo-Card__Icons">
+					<div className="Repo-Card__Stars">
+						<StarIcon />
+						<p>{repo.stargazers_count}</p>
+					</div>
+					<div className="Repo-Card__Forks">
+						<ForkIcon />
+						<p>{repo.forks_count}</p>
+					</div>
+				</div>
+			</div>
 		</li>
 	));
 
