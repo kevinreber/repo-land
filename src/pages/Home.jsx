@@ -113,11 +113,8 @@ function Home() {
 	// ○ Date
 
 	return (
-		<div>
-			<h1>Netflix Repositories</h1>
-			<div>
-				<RepoList repositories={repositories} />
-			</div>
+		<div className="Main-Body__Content">
+			<RepoList repositories={repositories} />
 		</div>
 	);
 }

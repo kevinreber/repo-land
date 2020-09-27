@@ -1,7 +1,8 @@
 /** Dependencies */
 import React from 'react';
 
-/** Routes */
+/** Components & Routes */
+import Header from './components/layout/Header';
 import Routes from './routes/Routes';
 
 /** Styles */
@@ -10,7 +11,10 @@ import './App.css';
 function App() {
 	return (
 		<div className="App">
-			<Routes />
+			<Header />
+			<div className="Main-Body">
+				<Routes />
+			</div>
 		</div>
 	);
 }
