@@ -4,6 +4,7 @@ import axios from 'axios';
 
 /** Components */
 import RepoList from '../components/RepoList';
+import Loader from '../components/Loader';
 
 /** Hooks */
 import useAxios from '../hooks/useAxios';
@@ -93,7 +94,7 @@ function Home() {
 	}, [data, repositories]);
 
 	if (data.isLoading) {
-		return <div>Loading...</div>;
+		return <Loader />;
 	}
 	if (data.error) {
 		return <div>Sorry, something went wrong</div>;

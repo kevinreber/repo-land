@@ -1,0 +1,12 @@
+.Loader-Wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Loader {
+    color: var(--primary) !important;
+    height: 4rem;
+    width: 4rem;
+}
