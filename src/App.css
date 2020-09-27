@@ -1,5 +1,32 @@
+:root {
+  --primary: #E50A13;
+  --secondary: #eeeeee;
+  --tertiary: #757575;
+  --bg-primary: #222222;
+  --bg-secondary: #303030
+}
+
 .App {
   text-align: center;
+  background-color: var(--bg-primary);
+}
+
+body p {
+  color: var(--secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 .App-logo {
