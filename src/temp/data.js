@@ -56,8 +56,8 @@ export const commitData = {
 						email: 'noreply@github.com',
 						name: 'GitHub',
 					},
+					message: 'CASS-1937 cease filtering out OpsCenter keyspace. (#907)',
 				},
-				message: 'CASS-1937 cease filtering out OpsCenter keyspace. (#907)',
 				committer: {
 					avatar_url: 'https://avatars3.githubusercontent.com/u/19864447?v=4',
 					events_url: 'https://api.github.com/users/web-flow/events{/privacy}',
@@ -91,8 +91,8 @@ export const commitData = {
 						email: 'mattl@netflix.com',
 						name: 'Matt Lehman',
 					},
+					message: 'Update CHANGELOG in advance of 3.1.99',
 				},
-				message: 'Update CHANGELOG in advance of 3.1.99',
 				committer: {
 					avatar_url: 'https://avatars0.githubusercontent.com/u/63665634?v=4',
 					events_url:
@@ -128,9 +128,9 @@ export const commitData = {
 						email: 'noreply@github.com',
 						name: 'GitHub',
 					},
+					message:
+						'Remove redundant log statements from CassandraAdmin (#903) CASS-1870 remove dead code, clean imports CASS-1870 correct typos CASS-1870 Remove noisy log statements from CassandraAdmin. All removed logs are redundant with what JMXNodeTool produces and sometimes print entire stack traces when the Exception is not a surprise (i.e., C* is not up yet)',
 				},
-				message:
-					'Remove redundant log statements from CassandraAdmin (#903) CASS-1870 remove dead code, clean imports CASS-1870 correct typos CASS-1870 Remove noisy log statements from CassandraAdmin. All removed logs are redundant with what JMXNodeTool produces and sometimes print entire stack traces when the Exception is not a surprise (i.e., C* is not up yet)',
 				committer: {
 					avatar_url: 'https://avatars3.githubusercontent.com/u/19864447?v=4',
 					events_url: 'https://api.github.com/users/web-flow/events{/privacy}',
