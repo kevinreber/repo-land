@@ -29,16 +29,22 @@
     justify-content: space-between;
 }
 
+.Repo-List>.Repo-Card>.Repo-Card__Footer {
+    font-size: small;
+}
+
 .Repo-List>.Repo-Card>.Repo-Card__Footer p {
     margin-bottom: 0;
 }
 
-.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Stats,
-.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons {
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Stats>p,
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons p,
+.Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons svg {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
+    color: var(--tertiary);
 }
 
 .Repo-List>.Repo-Card>.Repo-Card__Footer>.Repo-Card__Icons>.Repo-Card__Stars svg {
