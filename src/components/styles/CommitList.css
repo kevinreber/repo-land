@@ -22,6 +22,7 @@
 
 .Commit-List>.Commit-Card>.Commit-Body {
     display: flex;
+    align-items: baseline;
 }
 
 .Commit-List>.Commit-Card>.Commit-Body span.username {
@@ -41,11 +42,12 @@
 
 .Commit-List>.Commit-Card img {
     border-radius: 100%;
-    width: 2.5rem;
+    width: 2rem;
 }
 
 .Commit-List>.Commit-Card>.Commit-Footer {
     font-size: x-small;
+    text-align: end;
 }
 
 .Commit-List>.Commit-Card>.Commit-Body p,
