@@ -1,18 +1,25 @@
 /** Dependencies */
 import React from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 
-/** Components */
+/** Components & Helpers */
 import StarIcon from './Icons/StarIcon';
 import ForkIcon from './Icons/ForkIcon';
+import CommitHistoryAccordion from './CommitHistoryAccordion';
+import convertDate from '../helpers/convertDate';
 
 /** Styles */
 import './styles/RepoList.css';
 
+/**
+ * Creates a List that displays data for each repository in repositories.
+ *
+ * @param {array} repositories Array of repositories
+ */
 function RepoList({ repositories }) {
+	/** Create Card for each repository */
 	const RepoCards = repositories.map((repo) => (
-		<li className="Repo-Card">
+		<li className="card Repo-Card">
 			<div className="Repo-Card__Header">
 				<h3 className="Repo-Card__Title">{repo.name}</h3>
 				<p>{repo.description}</p>
@@ -20,7 +27,7 @@ function RepoList({ repositories }) {
 			<div className="Repo-Card__Footer">
 				<div className="Repo-Card__Stats">
 					<p>Language: {repo.language}</p>
-					<p>Created: {moment(repo.created_at).calendar()}</p>
+					<p>Created: {convertDate(repo.created_at)}</p>
 				</div>
 				<div className="Repo-Card__Icons">
 					<div className="Repo-Card__Stars">
@@ -33,12 +40,15 @@ function RepoList({ repositories }) {
 					</div>
 				</div>
 			</div>
+			<CommitHistoryAccordion name={repo.name} />
 		</li>
 	));
 
 	return (
 		<div>
-			<ul className="Repo-List">{RepoCards}</ul>
+			<ul id="accordion" className="Repo-List">
+				{RepoCards}
+			</ul>
 		</div>
 	);
 }
