@@ -1,3 +1,8 @@
+hr {
+    border-top: 1px solid var(--tertiary);
+    margin-bottom: 0;
+}
+
 .Repo-Card__Commit-Toggle .btn-link,
 .Repo-Card__Commit-Toggle svg {
     color: var(--primary);

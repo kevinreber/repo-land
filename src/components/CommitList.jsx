@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 /** Helpers */
 import convertDate from '../helpers/convertDate';
 
+/** Styles */
+import './styles/CommitList.css';
+
 /**
  * Creates Card for each commit passed into commits
  *
@@ -20,15 +23,30 @@ function CommitList({ commits }) {
 				<p>{commit.message}</p>
 			</div>
 			<div className="Commit-Body">
+				<div className="Commit-Body__Left">
+					<img src={commit.committerAvatar} alt={commit.committerName} />
+				</div>
+				<div className="Commit-Body__Right">
+					<p>
+						<span className="username">{commit.committerName}</span>
+						committed {convertDate(commit.commitDate)}
+					</p>
+				</div>
+			</div>
+			<div className="Commit-Footer">
 				<p>
-					{commit.committerName} committed on {convertDate(commit.commitDate)}
+					commit:
+					<span className="Commit-Hash"> {commit.sha}</span>
 				</p>
-				<p>commit {commit.sha}</p>
 			</div>
 		</li>
 	));
 
-	return <ul className="Commit-List">{CommitList}</ul>;
+	return (
+		<>
+			<ul className="Commit-List">{CommitList}</ul>
+		</>
+	);
 }
 
 CommitList.propTypes = {

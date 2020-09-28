@@ -1,0 +1,50 @@
+/********************************* */
+/** COMMIT LIST                    *
+/********************************* */
+.Commit-List {
+    /* background-color: var(--bg-primary); */
+}
+
+/********************************* */
+/** COMMIT CARD                    *
+/********************************* */
+.Commit-List>.Commit-Card {
+    text-align: left;
+}
+
+.Commit-List>.Commit-Card:not(:last-child) {
+    border-bottom: 1px solid var(--tertiary);
+}
+
+.Commit-List>.Commit-Card>.Commit-Body {
+    display: flex;
+}
+
+.Commit-List>.Commit-Card>.Commit-Body span.username {
+    color: var(--primary);
+    font-weight: 600;
+    margin-right: .5rem;
+}
+
+.Commit-List>.Commit-Card>.Commit-Body>.Commit-Body__Left {
+    margin-right: 1.5rem;
+}
+
+.Commit-List>.Commit-Card img {
+    border-radius: 100%;
+    width: 2.5rem;
+}
+
+.Commit-List>.Commit-Card>.Commit-Footer {
+    font-size: small;
+}
+
+.Commit-List>.Commit-Card>.Commit-Body p,
+.Commit-List>.Commit-Card>.Commit-Footer {
+    font-style: italic;
+}
+
+.Commit-List>.Commit-Card>.Commit-Footer>p {
+    color: var(--tertiary);
+    font-weight: 200;
+}

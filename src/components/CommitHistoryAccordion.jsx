@@ -36,7 +36,8 @@ function CommitHistoryAccordion({ name }) {
 			setCommits(
 				data.response.data.map((commit) => {
 					return {
-						// committerName: commit.committer.login,
+						committerAvatar: commit.committer.avatar_url,
+						committerName: commit.committer.login,
 						message: commit.commit.message,
 						sha: commit.sha,
 						commitDate: commit.commit.committer.date,
@@ -70,6 +71,7 @@ function CommitHistoryAccordion({ name }) {
 				className="collapse"
 				aria-labelledby={`heading${name}`}
 				data-parent="#accordion">
+				<hr />
 				<CommitList commits={commits} />
 			</div>
 		</div>
