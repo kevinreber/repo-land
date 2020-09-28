@@ -2,60 +2,37 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-/** Components */
+/** Components & Helpers */
 import RepoList from '../components/RepoList';
 import Loader from '../components/Loader';
 
 /** Hooks */
 import useAxios from '../hooks/useAxios';
 
-const BASE_URL = 'https://api.github.com/orgs/Netflix/repos';
+// TEMP - Dummy Data
+import { repoData } from '../temp/data';
 
-// Dummy Data
-const data = {
-	isLoading: false,
-	error: null,
-	response: {
-		status: 200,
-		data: [
-			{
-				name: 'astyanax',
-				language: 'Java',
-				description: 'Cassandra Java Client',
-				stargazers_count: 1010,
-				forks_count: 366,
-				created_at: '2011-07-13T20:24:30Z',
-			},
-			{
-				name: 'curator',
-				language: 'Java',
-				description: 'ZooKeeper client wrapper and rich ZooKeeper framework',
-				stargazers_count: 2092,
-				forks_count: 434,
-				created_at: '2011-07-14T19:47:55Z',
-			},
-			{
-				name: 'Priam',
-				language: 'Java',
-				description:
-					'Co-Process for backup/recovery, Token Management, and Centralized Configuration management for Cassandra.',
-				stargazers_count: 980,
-				forks_count: 276,
-				created_at: '2011-07-20T17:51:25Z',
-			},
-		],
-	},
-};
+const REPO_BASE_URL = 'https://api.github.com/orgs/Netflix';
 
+/**
+ * Home Page displaying list of organization's repositories.
+ */
 function Home() {
 	/* ! Use Dummy Data to save API calls */
-	// const data = useAxios(BASE_URL);
+	// const data = useAxios(`$BASE_URL/repos`);
+	// const commitData = await axios.get(`${BASE_URL}/${repo.name}/commits`);
+	const data = repoData;
 	const [repositories, setRepositories] = useState([]);
+	// const [repositories, setRepositories] = useState(data);
 
 	useEffect(() => {
 		function getRepoCommitData() {
 			setRepositories(
 				data.response.data.map((repo) => {
+					// const commitData = await axios.get(
+					// 	`${BASE_URL}/${repo.name}/commits`
+					// );
+					// console.log(commitData);
 					return {
 						name: repo.name,
 						language: repo.language,
@@ -99,18 +76,6 @@ function Home() {
 	if (data.error) {
 		return <div>Sorry, something went wrong</div>;
 	}
-
-	/** Nested
-	 * make AJAX request using 'commits_url'*/
-	// commit.message
-	// commit.committer.name
-	// sha
-	// commit.committer.date
-
-	// ○ Commit Title
-	// ○ Committer username
-	// ○ Commit hash
-	// ○ Date
 
 	return (
 		<div className="Main-Body__Content">
