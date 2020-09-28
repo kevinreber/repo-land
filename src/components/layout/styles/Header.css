@@ -17,5 +17,7 @@
 
 .brand img {
     height: 40px;
-    margin-right: 2px;
+    margin-right: 1rem;
+    border-radius: 100%;
+    object-fit: cover;
 }

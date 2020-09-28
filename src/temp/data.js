@@ -11,6 +11,9 @@ export const repoData = {
 				stargazers_count: 1010,
 				forks_count: 366,
 				created_at: '2011-07-13T20:24:30Z',
+				owner: {
+					avatar_url: 'https://avatars3.githubusercontent.com/u/913567?v=4',
+				},
 			},
 			{
 				name: 'curator',
@@ -19,6 +22,9 @@ export const repoData = {
 				stargazers_count: 2092,
 				forks_count: 434,
 				created_at: '2011-07-14T19:47:55Z',
+				owner: {
+					avatar_url: 'https://avatars3.githubusercontent.com/u/913567?v=4',
+				},
 			},
 			{
 				name: 'Priam',
@@ -28,6 +34,9 @@ export const repoData = {
 				stargazers_count: 980,
 				forks_count: 276,
 				created_at: '2011-07-20T17:51:25Z',
+				owner: {
+					avatar_url: 'https://avatars3.githubusercontent.com/u/913567?v=4',
+				},
 			},
 		],
 	},
