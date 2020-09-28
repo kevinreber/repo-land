@@ -8,6 +8,7 @@
     width: 100%;
     letter-spacing: 1px;
     box-shadow: 0 0 2rem 8px var(--bg-primary);
+    z-index: 9999;
 }
 
 .brand {
