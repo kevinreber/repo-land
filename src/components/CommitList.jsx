@@ -26,10 +26,8 @@ function CommitList({ commits }) {
 					<img src={commit.committerAvatar} alt={commit.committerName} />
 				</div>
 				<div className="Commit-Body__Right">
-					<p>
-						<span className="username">{commit.committerName}</span>
-						committed {convertDate(commit.commitDate)}
-					</p>
+					<p className="username">{commit.committerName}</p>
+					<p>committed {convertDate(commit.commitDate)}</p>
 				</div>
 			</div>
 			<div className="Commit-Footer">

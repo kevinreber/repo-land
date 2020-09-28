@@ -32,13 +32,18 @@
 
 .Commit-List>.Commit-Card>.Commit-Body {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    margin-bottom: .5rem;
 }
 
-.Commit-List>.Commit-Card>.Commit-Body span.username {
+.Commit-List>.Commit-Card>.Commit-Body .username {
     color: var(--primary);
     font-weight: 600;
     margin-right: .5rem;
+}
+
+.Commit-List>.Commit-Card>.Commit-Body p {
+    margin: 0;
 }
 
 .Commit-List>.Commit-Card>.Commit-Header {
