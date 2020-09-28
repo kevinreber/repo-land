@@ -1,7 +1,9 @@
 /********************************* */
 /** COMMIT LIST                    *
 /********************************* */
-#collapseastyanax {
+.collapse,
+.collapse.show,
+.collapsing {
     background-color: #444444;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -14,6 +16,14 @@
     text-align: left;
     font-size: 14px;
     padding: .5rem 1rem;
+}
+
+.Commit-History {
+    padding: .5rem;
+}
+
+.Commit-History button.btn {
+    border: 1px solid var(--primary);
 }
 
 .Commit-List>.Commit-Card:not(:last-child) {

@@ -64,7 +64,7 @@ function CommitHistoryAccordion({ name }) {
 
 	return (
 		<div className="Repo-Card__Commit-Toggle">
-			<div id={`${name}-Commit-History`}>
+			<div id={`${name}-Commit-History`} className="Commit-History">
 				<h5 className="mb-0">
 					<button
 						className="btn btn-link collapsed"
