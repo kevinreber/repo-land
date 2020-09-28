@@ -17,22 +17,17 @@ const REPO_BASE_URL = 'https://api.github.com/orgs/Netflix';
 /**
  * Home Page displaying list of organization's repositories.
  */
-function Home() {
+function Repositories() {
 	/* ! Use Dummy Data to save API calls */
 	// const data = useAxios(`$BASE_URL/repos`);
-	// const commitData = await axios.get(`${BASE_URL}/${repo.name}/commits`);
+
 	const data = repoData;
 	const [repositories, setRepositories] = useState([]);
-	// const [repositories, setRepositories] = useState(data);
 
 	useEffect(() => {
 		function getRepoCommitData() {
 			setRepositories(
 				data.response.data.map((repo) => {
-					// const commitData = await axios.get(
-					// 	`${BASE_URL}/${repo.name}/commits`
-					// );
-					// console.log(commitData);
 					return {
 						name: repo.name,
 						language: repo.language,
@@ -65,7 +60,7 @@ function Home() {
 		if (!data.isLoading && !data.error && repositories.length === 0) {
 			getRepoCommitData();
 		}
-		if (repositories.length !== 0) {
+		if (repositories.length > 0) {
 			sortRepos();
 		}
 	}, [data, repositories]);
@@ -84,4 +79,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default Repositories;

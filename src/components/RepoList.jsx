@@ -14,6 +14,8 @@ import './styles/RepoList.css';
 /**
  * Creates a List that displays data for each repository in repositories.
  *
+ * Repositories -> RepoList
+ *
  * @param {array} repositories Array of repositories
  */
 function RepoList({ repositories }) {

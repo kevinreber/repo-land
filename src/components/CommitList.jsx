@@ -11,7 +11,7 @@ import './styles/CommitList.css';
 /**
  * Creates Card for each commit passed into commits
  *
- * Home -> RepoList -> CommitHistoryAccordion -> CommitList
+ * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
  *
  * @param {array} commits
  */

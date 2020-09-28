@@ -20,7 +20,7 @@ const COMMIT_BASE_URL = 'https://api.github.com/repos/Netflix';
 /**
  * Accordion component of Repo Card that displays the most recent 5 commits.
  *
- * Home -> RepoList -> CommitHistoryAccordion -> CommitList
+ * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
  *
  * @param {string} name Name of repository
  */
