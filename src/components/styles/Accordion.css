@@ -1,0 +1,9 @@
+.Repo-Card__Commit-Toggle .btn-link,
+.Repo-Card__Commit-Toggle svg {
+    color: var(--primary);
+}
+
+.Repo-Card__Commit-Toggle svg {
+    margin-right: 8px;
+    margin-top: -4px;
+}
