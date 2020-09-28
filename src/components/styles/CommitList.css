@@ -30,8 +30,13 @@
     margin-right: .5rem;
 }
 
+.Commit-List>.Commit-Card>.Commit-Header {
+    text-align: left;
+    font-weight: 800;
+}
+
 .Commit-List>.Commit-Card>.Commit-Body>.Commit-Body__Left {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
 }
 
 .Commit-List>.Commit-Card img {

@@ -38,7 +38,7 @@ function CommitHistoryAccordion({ name }) {
 					return {
 						committerAvatar: commit.committer.avatar_url,
 						committerName: commit.committer.login,
-						message: commit.commit.message,
+						message: commit.message,
 						sha: commit.sha,
 						commitDate: commit.commit.committer.date,
 					};
