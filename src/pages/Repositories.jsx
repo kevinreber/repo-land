@@ -26,6 +26,7 @@ function Repositories() {
 	console.log(data);
 
 	const [repositories, setRepositories] = useState([]);
+	const [sortedRepos, setSortedRepos] = useState([]);
 
 	useEffect(() => {
 		function getRepoCommitData() {
@@ -46,14 +47,14 @@ function Repositories() {
 
 		/** Sorts Repos by stargazers_count */
 		function sortRepos() {
-			setRepositories(
+			setSortedRepos(
 				repositories.sort((repoA, repoB) => {
 					console.log(repoA.stargazers_count, repoB.stargazers_count);
 					if (repoA.stargazers_count < repoB.stargazers_count) {
-						return -1;
+						return 1;
 					}
 					if (repoA.stargazers_count > repoB.stargazers_count) {
-						return 1;
+						return -1;
 					}
 					return 0;
 				})
@@ -80,7 +81,7 @@ function Repositories() {
 					error={data.error.response.data.message}
 				/>
 			) : (
-				<RepoList repositories={repositories} />
+				<RepoList repositories={sortedRepos} />
 			)}
 		</div>
 	);
