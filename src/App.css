@@ -40,4 +40,6 @@ ul {
 
 .Main-Body__Content {
   margin-top: 12vh;
+  margin-right: auto;
+  margin-left: auto;
 }
