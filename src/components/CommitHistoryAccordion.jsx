@@ -1,19 +1,55 @@
 /** Dependencies */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-/** Components */
+/** Components & Helpers */
 import History from './Icons/History';
+import CommitList from './CommitList';
+
+/** Hooks */
+import useAxios from '../hooks/useAxios';
 
 /** Styles */
 import './styles/Accordion.css';
 
+// TEMP - Dummy Data
+import { commitData } from '../temp/data';
+
+const COMMIT_BASE_URL = 'https://api.github.com/repos/Netflix';
+
 /**
- * Accordion component of Repo Card that displays the most recent 5 commits
+ * Accordion component of Repo Card that displays the most recent 5 commits.
+ *
+ * Home -> RepoList -> CommitHistoryAccordion -> CommitList
  *
  * @param {string} name Name of repository
  */
 function CommitHistoryAccordion({ name }) {
+	/* ! Use Dummy Data to save API calls */
+	// const data = useAxios(`${BASE_URL}/${name}/commits`);
+
+	const data = commitData;
+	const [commits, setCommits] = useState([]);
+
+	useEffect(() => {
+		function setCommitData() {
+			setCommits(
+				data.response.data.map((commit) => {
+					return {
+						// committerName: commit.committer.login,
+						message: commit.commit.message,
+						sha: commit.sha,
+						commitDate: commit.commit.committer.date,
+					};
+				})
+			);
+		}
+
+		if (!data.isLoading && !data.error && commits.length === 0) {
+			setCommitData();
+		}
+	}, [data]);
+
 	return (
 		<div className="Repo-Card__Commit-Toggle">
 			<div id={`${name}-Commit-History`}>
@@ -34,7 +70,7 @@ function CommitHistoryAccordion({ name }) {
 				className="collapse"
 				aria-labelledby={`heading${name}`}
 				data-parent="#accordion">
-				<div class="card-body">{name} commit list</div>
+				<CommitList commits={commits} />
 			</div>
 		</div>
 	);
