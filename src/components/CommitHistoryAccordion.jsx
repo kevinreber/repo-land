@@ -28,10 +28,9 @@ const COMMIT_BASE_URL = 'https://api.github.com/repos/Netflix';
  */
 function CommitHistoryAccordion({ name }) {
 	// ! Use Dummy Data to save request limit to API
-	// const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits`);
-	// * limit number of items returned `?page=3&per_page=100`
+	const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=5`);
 	// * DUMMY DATA
-	const data = commitData;
+	// const data = commitData;
 	console.log(data);
 
 	const [commits, setCommits] = useState([]);
@@ -44,8 +43,7 @@ function CommitHistoryAccordion({ name }) {
 					return {
 						committerAvatar: commit.committer.avatar_url,
 						committerName: commit.committer.login,
-						// committerName: commit.commit.committer.name,
-						message: commit.message,
+						message: commit.commit.message,
 						sha: commit.sha,
 						commitDate: commit.commit.committer.date,
 					};
