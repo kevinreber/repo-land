@@ -45,11 +45,11 @@ function RepoList({ repositories }) {
 	));
 
 	return (
-		<div>
+		<>
 			<ul id="accordion" className="Repo-List">
 				{RepoCards}
 			</ul>
-		</div>
+		</>
 	);
 }
 
