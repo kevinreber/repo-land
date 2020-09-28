@@ -20,13 +20,13 @@ const REPO_BASE_URL = 'https://api.github.com/orgs/Netflix';
 
 function App() {
 	// ! Use Dummy Data to save request limit to API
-	// const data = useAxios(`${REPO_BASE_URL}/repos`);
+	const data = useAxios(`${REPO_BASE_URL}/repos`);
 	// * DUMMY DATA
-	const data = repoData;
+	// const data = repoData;
 	console.log(data);
 
 	const [repositories, setRepositories] = useState([]);
-	const [ownerAvatar, setOwnerAvatar] = useState(null);
+	const [ownerAvatar, setOwnerAvatar] = useState('');
 
 	useEffect(() => {
 		function getRepoCommitData() {
