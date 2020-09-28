@@ -6,10 +6,8 @@
   --bg-secondary: #303030
 }
 
-.App {
-  text-align: center;
+body {
   background-color: var(--bg-primary);
-  height: 100vh;
 }
 
 p,
@@ -29,6 +27,11 @@ h6 {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+.App {
+  text-align: center;
+  height: 100vh;
 }
 
 .Main-Body {
