@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /** Components & Helpers */
-import History from './Icons/History';
+import History from './icons/History';
 import CommitList from './CommitList';
 
 /** Hooks */
