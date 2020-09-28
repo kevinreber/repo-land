@@ -1,8 +1,10 @@
 /********************************* */
 /** COMMIT LIST                    *
 /********************************* */
-.Commit-List {
-    /* background-color: var(--bg-primary); */
+#collapseastyanax {
+    background-color: #444444;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 /********************************* */
@@ -10,6 +12,8 @@
 /********************************* */
 .Commit-List>.Commit-Card {
     text-align: left;
+    font-size: 14px;
+    padding: .5rem 1rem;
 }
 
 .Commit-List>.Commit-Card:not(:last-child) {
@@ -36,7 +40,7 @@
 }
 
 .Commit-List>.Commit-Card>.Commit-Footer {
-    font-size: small;
+    font-size: x-small;
 }
 
 .Commit-List>.Commit-Card>.Commit-Body p,
@@ -45,6 +49,5 @@
 }
 
 .Commit-List>.Commit-Card>.Commit-Footer>p {
-    color: var(--tertiary);
-    font-weight: 200;
+    color: #bebebe;
 }
