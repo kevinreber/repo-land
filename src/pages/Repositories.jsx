@@ -5,6 +5,7 @@ import axios from 'axios';
 /** Components & Helpers */
 import RepoList from '../components/RepoList';
 import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 
 /** Hooks */
 import useAxios from '../hooks/useAxios';
@@ -18,10 +19,12 @@ const REPO_BASE_URL = 'https://api.github.com/orgs/Netflix';
  * Home Page displaying list of organization's repositories.
  */
 function Repositories() {
-	/* ! Use Dummy Data to save API calls */
-	// const data = useAxios(`$BASE_URL/repos`);
-
+	// ! Use Dummy Data to save request limit to API
+	// const data = useAxios(`${REPO_BASE_URL}/repos`);
+	// * DUMMY DATA
 	const data = repoData;
+	console.log(data);
+
 	const [repositories, setRepositories] = useState([]);
 
 	useEffect(() => {
@@ -68,13 +71,17 @@ function Repositories() {
 	if (data.isLoading) {
 		return <Loader />;
 	}
-	if (data.error) {
-		return <div>Sorry, something went wrong</div>;
-	}
 
 	return (
 		<div className="Main-Body__Content">
-			<RepoList repositories={repositories} />
+			{data.error ? (
+				<ErrorMessage
+					status={data.error.response.status}
+					error={data.error.response.data.message}
+				/>
+			) : (
+				<RepoList repositories={repositories} />
+			)}
 		</div>
 	);
 }

@@ -43,3 +43,12 @@ ul {
   margin-right: auto;
   margin-left: auto;
 }
+
+.error {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--secondary);
+  margin: auto;
+  width: 90%;
+  max-width: 500px;
+}

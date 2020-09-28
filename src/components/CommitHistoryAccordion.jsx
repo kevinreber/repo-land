@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 /** Components & Helpers */
 import History from './icons/History';
 import CommitList from './CommitList';
+import ErrorMessage from './ErrorMessage';
+import Loader from './Loader';
 
 /** Hooks */
 import useAxios from '../hooks/useAxios';
@@ -25,19 +27,24 @@ const COMMIT_BASE_URL = 'https://api.github.com/repos/Netflix';
  * @param {string} name Name of repository
  */
 function CommitHistoryAccordion({ name }) {
-	/* ! Use Dummy Data to save API calls */
-	// const data = useAxios(`${BASE_URL}/${name}/commits`);
-
+	// ! Use Dummy Data to save request limit to API
+	// const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits`);
+	// * limit number of items returned `?page=3&per_page=100`
+	// * DUMMY DATA
 	const data = commitData;
+	console.log(data);
+
 	const [commits, setCommits] = useState([]);
 
 	useEffect(() => {
 		function setCommitData() {
 			setCommits(
 				data.response.data.map((commit) => {
+					console.log(commit);
 					return {
 						committerAvatar: commit.committer.avatar_url,
 						committerName: commit.committer.login,
+						// committerName: commit.commit.committer.name,
 						message: commit.message,
 						sha: commit.sha,
 						commitDate: commit.commit.committer.date,
@@ -50,6 +57,10 @@ function CommitHistoryAccordion({ name }) {
 			setCommitData();
 		}
 	}, [data]);
+
+	if (data.isLoading) {
+		return <Loader />;
+	}
 
 	return (
 		<div className="Repo-Card__Commit-Toggle">
@@ -72,7 +83,14 @@ function CommitHistoryAccordion({ name }) {
 				aria-labelledby={`heading${name}`}
 				data-parent="#accordion">
 				<hr />
-				<CommitList commits={commits} />
+				{data.error ? (
+					<ErrorMessage
+						status={data.error.response.status}
+						error={data.error.response.data.message}
+					/>
+				) : (
+					<CommitList commits={commits} />
+				)}
 			</div>
 		</div>
 	);

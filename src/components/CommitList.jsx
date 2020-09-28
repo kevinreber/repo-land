@@ -16,7 +16,6 @@ import './styles/CommitList.css';
  * @param {array} commits
  */
 function CommitList({ commits }) {
-	console.log(commits);
 	const CommitList = commits.map((commit) => (
 		<li className="Commit-Card">
 			<div className="Commit-Header">
