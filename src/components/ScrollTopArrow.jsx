@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 /** Components */
-import Arrow from './icons/Arrow';
+import ArrowIcon from './ArrowIcon';
 
 /** Styles */
 import './styles/ScrollTopArrow.css';
@@ -29,7 +29,7 @@ function ScrollTopArrow() {
 			className="scrollTop"
 			onClick={scrollTop}
 			style={{ height: 40, display: showScroll ? 'flex' : 'none' }}>
-			<Arrow />
+			<ArrowIcon />
 		</p>
 	);
 }

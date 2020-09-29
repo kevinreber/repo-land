@@ -2,7 +2,7 @@
 import React from 'react';
 
 /** Components */
-import GitIcon from './icons/GitIcon';
+import GitIcon from '../GitIcon';
 
 function Brand() {
 	return (

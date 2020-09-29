@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /** Components & Helpers */
-import History from './icons/History';
+import HistoryIcon from './HistoryIcon';
 import CommitList from './CommitList';
 import ErrorMessage from './ErrorMessage';
 import Loader from './Loader';
@@ -70,7 +70,7 @@ function CommitHistoryAccordion({ name }) {
 						data-target={`#collapse${name}`}
 						aria-expanded="false"
 						aria-controls={`collapse${name}`}>
-						<History />
+						<HistoryIcon />
 						Recent Commits
 					</button>
 				</p>

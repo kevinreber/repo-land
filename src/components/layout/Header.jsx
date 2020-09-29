@@ -2,7 +2,7 @@
 import React from 'react';
 
 /** Components */
-import Brand from '../Brand';
+import Brand from './Brand';
 import NewOrganizationForm from '../NewOrganizationForm';
 
 /** Styles */
