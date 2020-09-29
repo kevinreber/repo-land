@@ -21,7 +21,7 @@ import './styles/RepoList.css';
 function RepoList({ repositories }) {
 	/** Create Card for each repository */
 	const RepoCards = repositories.map((repo) => (
-		<li className="card Repo-Card">
+		<li key={repo.id} className="card Repo-Card">
 			<div className="Repo-Card__Content">
 				<div className="Repo-Card__Header">
 					<h5 className="Repo-Card__Title">{repo.name}</h5>

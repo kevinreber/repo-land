@@ -76,6 +76,7 @@ function App() {
 			setRepositories(
 				data.response.data.map((repo) => {
 					return {
+						id: repo.id,
 						name: repo.name,
 						language: repo.language,
 						description: repo.description,

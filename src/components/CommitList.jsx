@@ -17,7 +17,7 @@ import './styles/CommitList.css';
  */
 function CommitList({ commits }) {
 	const CommitList = commits.map((commit) => (
-		<li className="Commit-Card">
+		<li key={commit.sha} className="Commit-Card">
 			<div className="Commit-Header">
 				<p>{commit.message}</p>
 			</div>

@@ -24,14 +24,14 @@ function NewOrganizationForm({ value, setValue, searchForOrg }) {
 			<form className="form-inline my-lg-0 Organization-Form" onSubmit={search}>
 				<input
 					type="text"
-					class="form-control"
+					className="form-control"
 					placeholder="Search Organizations..."
 					value={value}
 					onChange={(e) => setValue(e.target.value)}
 					required
 				/>
-				<div class="input-group-append">
-					<button class="btn btn-outline-secondary" type="submit">
+				<div className="input-group-append">
+					<button className="btn btn-outline-secondary" type="submit">
 						Search
 					</button>
 				</div>

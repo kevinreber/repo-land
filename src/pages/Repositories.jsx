@@ -21,7 +21,6 @@ function Repositories({ repositories }) {
 		function sortRepos() {
 			setSortedRepos(
 				repositories.sort((repoA, repoB) => {
-					console.log(repoA.stargazers_count, repoB.stargazers_count);
 					if (repoA.stargazers_count < repoB.stargazers_count) {
 						return 1;
 					}
