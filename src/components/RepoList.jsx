@@ -16,7 +16,8 @@ import './styles/RepoList.css';
  *
  * Repositories -> RepoList
  *
- * @param {array} repositories Array of repositories
+ * @param {array} repositories Array of repositories.
+ * @param {string} organization Name of Organization.
  */
 function RepoList({ repositories, organization }) {
 	/** Create Card for each repository */

@@ -11,6 +11,9 @@ import './styles/Repositories.css';
 
 /**
  * Home Page displaying list of organization's repositories sorted by star count.
+ *
+ * @param {array} repositories Array of repositories.
+ * @param {string} organization Name of Organization.
  */
 function Repositories({ repositories, organization }) {
 	const [sortedRepos, setSortedRepos] = useState([]);

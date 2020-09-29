@@ -25,7 +25,8 @@ const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
  *
  * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
  *
- * @param {string} name Name of repository
+ * @param {string} name Name of repository.
+ * @param {string} organization Name of Organization.
  */
 function CommitHistoryAccordion({ name, organization }) {
 	// ! Use Dummy Data to limit requests to API
