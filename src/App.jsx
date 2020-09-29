@@ -1,5 +1,6 @@
 /** Dependencies */
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 /** Components & Routes */
 import Repositories from './pages/Repositories';
@@ -7,9 +8,6 @@ import Header from './components/layout/Header';
 import Loader from './components/Loader';
 import ErrorMessage from './components/ErrorMessage';
 import ScrollTopArrow from './components/ScrollTopArrow';
-
-/** Hooks */
-import useAxios from './hooks/useAxios';
 
 // TEMP - Dummy Data
 import { repoData } from './temp/data';
@@ -22,19 +20,59 @@ const REPO_BASE_URL = 'https://api.github.com/orgs';
 function App() {
 	const [organization, setOrganization] = useState('Netflix');
 
-	// ! Use Dummy Data to save request limit to API
-	// const data = useAxios(`${REPO_BASE_URL}/${organization}/repos`);
-	// * DUMMY DATA
-	const data = repoData;
-	console.log(data);
+	// ! Use Dummy Data to limit requests to API
+	// * DUMMY DATA BELOW
+	const INITIAL_STATE = repoData;
+
+	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
+	// const INITIAL_STATE = {
+	// 	response: null,
+	// 	error: null,
+	// 	isLoading: true,
+	// };
+
+	const [data, setData] = useState(INITIAL_STATE);
 
 	const [repositories, setRepositories] = useState([]);
 	const [ownerAvatar, setOwnerAvatar] = useState('');
 
 	const [search, setSearch] = useState('');
 
+	/** Listens when state of organization changes and fetches that organizations data */
 	useEffect(() => {
-		function getRepoCommitData() {
+		const fetchData = async () => {
+			// Reset all state
+			setRepositories([]);
+			setData(INITIAL_STATE);
+			setSearch('');
+			setOwnerAvatar('');
+			try {
+				// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
+				// const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+				setData((data) => ({
+					...data,
+					// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
+					// response: res,
+				}));
+			} catch (error) {
+				setData((data) => ({
+					...data,
+					error,
+				}));
+			}
+			setData((data) => ({
+				...data,
+				isLoading: false,
+			}));
+		};
+		if (organization) {
+			fetchData();
+		}
+	}, [organization]);
+
+	/** If no errors, formats data from `data.response` */
+	useEffect(() => {
+		function getReposData() {
 			setRepositories(
 				data.response.data.map((repo) => {
 					return {
@@ -45,23 +83,28 @@ function App() {
 						forks_count: repo.forks_count,
 						created_at: repo.created_at,
 						owner_avatar_url: repo.owner.avatar_url,
-						// commitData: await axios.get(repo.commits_url),
 					};
 				})
 			);
 		}
 
 		if (!data.isLoading && !data.error && repositories.length === 0) {
-			getRepoCommitData();
+			getReposData();
 		}
 
+		// get owner's avatar to display in Header component
 		if (repositories.length > 0) {
 			setOwnerAvatar(repositories[0].owner_avatar_url);
 		}
 	}, [data, repositories]);
 
-	function searchForOrganization(data) {
-		console.log(data);
+	/** Changes state of organization, which will trigger the event listener
+	 * to fetch the organizations data
+	 *
+	 * @param {string} org Name of organization
+	 */
+	function searchForOrganization(org) {
+		setOrganization(org);
 	}
 
 	if (data.isLoading) {
