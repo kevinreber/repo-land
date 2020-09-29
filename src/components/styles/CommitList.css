@@ -20,7 +20,11 @@
 }
 
 .Commit-List>.Commit-Card:hover {
-    background-color: var(--white);
+    background-color: var(--highlight-light);
+}
+
+.Commit-List>.Commit-Card:hover .Commit-Footer>p {
+    color: var(--secondary);
 }
 
 .Commit-History {
@@ -81,7 +85,21 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (min-width: 600px) {
+
+    .Commit-List>.Commit-Card {
+        padding: 1rem 3rem;
+    }
+
+    .Commit-List>.Commit-Card>.Commit-Body {
+        font-size: 16px;
+    }
+
+    .Commit-List>.Commit-Card>.Commit-Body>.Commit-Body__Left>img {
+        width: 3rem;
+    }
+
     .Commit-List>.Commit-Card>.Commit-Footer {
+        font-size: 14px;
         text-align: end;
     }
 }

@@ -9,6 +9,17 @@
 /********************************* */
 /** REPO CARD                      *
 /********************************* */
+.Repo-List,
+.Repo-Card,
+.Repo-Card__Content,
+.Repo-Card__Footer,
+.Repo-Card__Icons,
+.Repo-Card__Stars,
+.Repo-Card__Forks,
+svg {
+    transition: .2s;
+}
+
 .Repo-List>.Repo-Card {
     display: flex;
     flex-direction: column;
@@ -16,15 +27,7 @@
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 0 8px 0 var(--shadow);
-    transition: .2s;
-}
-
-.Repo-List>.Repo-Card:hover {
-    box-shadow: 0 0 8px 0 var(--highlight);
-}
-
-.Repo-List>.Repo-Card:hover svg {
-    color: var(--highlight);
+    max-width: 840px;
 }
 
 .Repo-List>.Repo-Card>.Repo-Card__Content {
@@ -70,4 +73,44 @@
 
 .Repo-List>.Repo-Card>.Repo-Card__Content>.Repo-Card__Footer>.Repo-Card__Icons svg {
     margin-right: .5rem;
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Commit-Toggle button.btn {
+    margin-bottom: 1rem;
+}
+
+/********************************* */
+/** REPO CARD :hover               *
+/********************************* */
+.Repo-List>.Repo-Card:hover {
+    box-shadow: 0 0 8px 0 var(--highlight);
+}
+
+.Repo-List>.Repo-Card:hover .Repo-Card__Icons svg {
+    fill: var(--primary);
+}
+
+.Repo-List>.Repo-Card:hover .Repo-Card__Content>.Repo-Card__Footer p {
+    color: var(--primary);
+}
+
+.Repo-List>.Repo-Card>.Repo-Card__Commit-Toggle button:hover,
+.Repo-List>.Repo-Card>.Repo-Card__Commit-Toggle button:focus,
+.Repo-List>.Repo-Card>.Repo-Card__Commit-Toggle button:active {
+    text-decoration: none;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.Repo-Card__Commit-Toggle button.btn:hover svg.bi-clock-history,
+.Repo-Card__Commit-Toggle button.btn:active svg.bi-clock-history,
+.Repo-Card__Commit-Toggle button.btn:focus svg.bi-clock-history {
+    fill: var(--white);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 600px) {
+    .Repo-List>.Repo-Card>.Repo-Card__Content {
+        padding: 1rem 3rem;
+    }
 }

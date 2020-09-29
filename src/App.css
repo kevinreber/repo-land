@@ -7,8 +7,9 @@
   --bg-primary: #eeeeee;
   --bg-secondary: #303030;
   --white: #fff;
-  --commit-list: rgb(235, 235, 235);
+  --commit-list: rgb(243, 243, 243);
   --highlight: #ffce52;
+  --highlight-light: #ffefc5;
   --shadow: #777;
 }
 
