@@ -18,7 +18,7 @@ import './styles/RepoList.css';
  *
  * @param {array} repositories Array of repositories
  */
-function RepoList({ repositories }) {
+function RepoList({ repositories, organization }) {
 	/** Create Card for each repository */
 	const RepoCards = repositories.map((repo) => (
 		<li key={repo.id} className="card Repo-Card">
@@ -44,7 +44,7 @@ function RepoList({ repositories }) {
 					<p>Created: {convertDate(repo.created_at)}</p>
 				</div>
 			</div>
-			<CommitHistoryAccordion name={repo.name} />
+			<CommitHistoryAccordion name={repo.name} organization={organization} />
 		</li>
 	));
 

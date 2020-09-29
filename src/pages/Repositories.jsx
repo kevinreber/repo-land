@@ -12,7 +12,7 @@ import './styles/Repositories.css';
 /**
  * Home Page displaying list of organization's repositories sorted by star count.
  */
-function Repositories({ repositories }) {
+function Repositories({ repositories, organization }) {
 	const [sortedRepos, setSortedRepos] = useState([]);
 	const [filter, setFilter] = useState('');
 
@@ -49,12 +49,12 @@ function Repositories({ repositories }) {
 		// if no repository names match search, return NoData component
 		Body =
 			filteredRepos.length > 0 ? (
-				<RepoList repositories={filteredRepos} />
+				<RepoList repositories={filteredRepos} organization={organization} />
 			) : (
 				<NoData text={'repositories match'} />
 			);
 	} else if (sortedRepos.length !== 0) {
-		Body = <RepoList repositories={sortedRepos} />;
+		Body = <RepoList repositories={sortedRepos} organization={organization} />;
 	} else {
 		// if no data in sortedRepos
 		Body = <NoData text={'repositories'} />;

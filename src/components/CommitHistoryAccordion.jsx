@@ -17,7 +17,7 @@ import './styles/Accordion.css';
 // TEMP - Dummy Data
 import { commitData } from '../temp/data';
 
-const COMMIT_BASE_URL = 'https://api.github.com/repos/Netflix';
+const COMMIT_BASE_URL = 'https://api.github.com/repos';
 const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
 
 /**
@@ -27,12 +27,14 @@ const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
  *
  * @param {string} name Name of repository
  */
-function CommitHistoryAccordion({ name }) {
+function CommitHistoryAccordion({ name, organization }) {
 	// ! Use Dummy Data to limit requests to API
 	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-	const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=2`);
+	// const data = useAxios(
+	// 	// `${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=3`
+	// );
 	// * DUMMY DATA
-	// const data = commitData;
+	const data = commitData;
 	// console.log(data);
 
 	const [commits, setCommits] = useState([]);
@@ -43,9 +45,7 @@ function CommitHistoryAccordion({ name }) {
 				data.response.data.map((commit) => {
 					console.log(commit);
 					return {
-						committerAvatar: commit.committer.avatar_url
-							? commit.committer.avatar_url
-							: DEFAULT_AVATAR,
+						committerAvatar: commit.committer.avatar_url,
 						committerName: commit.committer.login,
 						message: commit.commit.message,
 						sha: commit.sha,
