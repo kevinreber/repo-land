@@ -7,7 +7,7 @@ function ForkIcon() {
 				width="1.25em"
 				height="1.25em"
 				viewBox="0 0 24 24"
-				class="bi bi-fork-fill"
+				className="bi bi-fork-fill"
 				fill="currentColor"
 				data-name="Fork Icon"
 				xmlns="http://www.w3.org/2000/svg">
