@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /** Styles */
-import './styles/NoData.css';
+import './NoData.css';
 
 /**
  * Component that let's user know that no data/matches exists.

@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 
 /** Components */
-import ArrowIcon from './icons/ArrowIcon';
+import ArrowIcon from '../icons/ArrowIcon';
 
 /** Styles */
-import './styles/ScrollTopArrow.css';
+import './ScrollTopArrow.css';
 
 function ScrollTopArrow() {
 	const [showScroll, setShowScroll] = useState(false);

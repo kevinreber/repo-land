@@ -4,10 +4,10 @@ import axios from 'axios';
 
 /** Components & Routes */
 import Repositories from './pages/Repositories';
-import Header from './components/layout/Header';
-import Loader from './components/Loader';
-import ErrorMessage from './components/ErrorMessage';
-import ScrollTopArrow from './components/ScrollTopArrow';
+import Header from './components/header/Header';
+import Loader from './components/loader/Loader';
+import ErrorMessage from './components/errorMessage/ErrorMessage';
+import ScrollTopArrow from './components/scrollTopArrow/ScrollTopArrow';
 
 // TEMP - Dummy Data
 import { repoData } from './temp/data';

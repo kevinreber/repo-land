@@ -3,19 +3,19 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /** Components & Helpers */
-import HistoryIcon from './icons/HistoryIcon';
+import HistoryIcon from '../icons/HistoryIcon';
 import CommitList from './CommitList';
-import ErrorMessage from './ErrorMessage';
-import Loader from './Loader';
+import ErrorMessage from '../errorMessage/ErrorMessage';
+import Loader from '../loader/Loader';
 
 /** Hooks */
-import useAxios from '../hooks/useAxios';
+import useAxios from '../../hooks/useAxios';
 
 /** Styles */
-import './styles/Accordion.css';
+import './CommitHistoryButton.css';
 
 // TEMP - Dummy Data
-import { commitData } from '../temp/data';
+import { commitData } from '../../temp/data';
 
 const COMMIT_BASE_URL = 'https://api.github.com/repos';
 const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';

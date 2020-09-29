@@ -2,7 +2,7 @@
 import React from 'react';
 
 /** Styles */
-import './styles/Loader.css';
+import './Loader.css';
 
 /**
  * Loader Component to display when status 'isLoading'

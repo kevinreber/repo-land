@@ -3,13 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /** Components & Helpers */
-import StarIcon from './icons/StarIcon';
-import ForkIcon from './icons/ForkIcon';
-import CommitHistoryAccordion from './CommitHistoryAccordion';
-import convertDate from '../helpers/convertDate';
+import StarIcon from '../icons/StarIcon';
+import ForkIcon from '../icons/ForkIcon';
+import CommitHistoryButton from '../commitList/CommitHistoryButton';
+import convertDate from '../../helpers/convertDate';
 
 /** Styles */
-import './styles/RepoList.css';
+import './RepoList.css';
 
 /**
  * Creates a List that displays data for each repository in repositories.
@@ -45,7 +45,7 @@ function RepoList({ repositories, organization }) {
 					<p>Created: {convertDate(repo.created_at)}</p>
 				</div>
 			</div>
-			<CommitHistoryAccordion name={repo.name} organization={organization} />
+			<CommitHistoryButton name={repo.name} organization={organization} />
 		</li>
 	));
 

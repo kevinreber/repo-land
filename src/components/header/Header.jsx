@@ -3,7 +3,7 @@ import React from 'react';
 
 /** Components */
 import Brand from './Brand';
-import NewOrganizationForm from '../NewOrganizationForm';
+import NewOrganizationForm from './NewOrganizationForm';
 
 /** Styles */
 import './styles/Header.css';

@@ -3,10 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /** Helpers */
-import convertDate from '../helpers/convertDate';
+import convertDate from '../../helpers/convertDate';
 
 /** Styles */
-import './styles/CommitList.css';
+import './CommitList.css';
 
 /**
  * Creates Card for each commit passed into commits
