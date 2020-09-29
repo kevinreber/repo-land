@@ -4,7 +4,7 @@
 .collapse,
 .collapse.show,
 .collapsing {
-    background-color: #444444;
+    background-color: var(--commit-list);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
@@ -16,6 +16,11 @@
     text-align: left;
     font-size: 14px;
     padding: .5rem 1rem;
+    transition: .2s;
+}
+
+.Commit-List>.Commit-Card:hover {
+    background-color: var(--white);
 }
 
 .Commit-History {
@@ -48,7 +53,7 @@
 
 .Commit-List>.Commit-Card>.Commit-Header {
     text-align: left;
-    font-weight: 800;
+    font-weight: bold;
 }
 
 .Commit-List>.Commit-Card>.Commit-Body>.Commit-Body__Left {
@@ -62,7 +67,7 @@
 
 .Commit-List>.Commit-Card>.Commit-Footer {
     font-size: x-small;
-    text-align: end;
+    text-align: start;
 }
 
 .Commit-List>.Commit-Card>.Commit-Body p,
@@ -71,5 +76,12 @@
 }
 
 .Commit-List>.Commit-Card>.Commit-Footer>p {
-    color: #bebebe;
+    color: var(--shadow);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 600px) {
+    .Commit-List>.Commit-Card>.Commit-Footer {
+        text-align: end;
+    }
 }

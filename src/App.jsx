@@ -16,13 +16,15 @@ import { repoData } from './temp/data';
 /** Styles */
 import './App.css';
 
-const REPO_BASE_URL = 'https://api.github.com/orgs/Netflix';
+const REPO_BASE_URL = 'https://api.github.com/orgs';
 
 function App() {
+	const [organization, setOrganization] = useState('Netflix');
+
 	// ! Use Dummy Data to save request limit to API
-	const data = useAxios(`${REPO_BASE_URL}/repos`);
+	// const data = useAxios(`${REPO_BASE_URL}/${organization}/repos`);
 	// * DUMMY DATA
-	// const data = repoData;
+	const data = repoData;
 	console.log(data);
 
 	const [repositories, setRepositories] = useState([]);
@@ -61,7 +63,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Header avatar={ownerAvatar} />
+			<Header avatar={ownerAvatar} organization={organization} />
 			<main className="Main-Body">
 				{data.error ? (
 					<ErrorMessage

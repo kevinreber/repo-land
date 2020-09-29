@@ -1,23 +1,75 @@
 .Main-Header {
-    background-color: #000000;
+    background-color: var(--bg-secondary);
     height: 8vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     width: 100%;
     letter-spacing: 1px;
-    box-shadow: 0 0 2rem 8px var(--bg-primary);
+    box-shadow: 0 0 10px 0 var(--shadow);
     z-index: 9999;
+    padding: 1rem;
 }
 
-.brand {
-    margin: auto;
+.Brand,
+.Main-Header img {
+    position: absolute;
 }
 
-.brand img {
+.Brand {
+    display: flex;
+    margin-bottom: 0;
+    left: 5%;
+}
+
+.Brand>.Brand-Title {
+    font-weight: 600;
+    letter-spacing: -1px;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.Brand>.Brand-Title.device-xs {
+    font-size: 14px;
+}
+
+.Brand>.Brand-Title.device-s {
+    display: none;
+}
+
+.Brand svg {
+    fill: var(--primary);
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: .5rem;
+}
+
+h2.organization {
+    text-transform: uppercase;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.Main-Header img {
     height: 40px;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     border-radius: 100%;
     object-fit: cover;
+    right: 5%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 600px) {
+    .Brand>.Brand-Title.device-xs {
+        display: none;
+    }
+
+    .Brand>.Brand-Title.device-s {
+        display: block;
+    }
+
 }

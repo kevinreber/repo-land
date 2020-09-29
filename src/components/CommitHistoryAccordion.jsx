@@ -28,9 +28,9 @@ const COMMIT_BASE_URL = 'https://api.github.com/repos/Netflix';
  */
 function CommitHistoryAccordion({ name }) {
 	// ! Use Dummy Data to save request limit to API
-	const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=5`);
+	// const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=5`);
 	// * DUMMY DATA
-	// const data = commitData;
+	const data = commitData;
 	console.log(data);
 
 	const [commits, setCommits] = useState([]);
@@ -63,7 +63,7 @@ function CommitHistoryAccordion({ name }) {
 	return (
 		<div className="Repo-Card__Commit-Toggle">
 			<div id={`${name}-Commit-History`} className="Commit-History">
-				<h5 className="mb-0">
+				<p className="mb-0">
 					<button
 						className="btn btn-link collapsed"
 						data-toggle="collapse"
@@ -73,7 +73,7 @@ function CommitHistoryAccordion({ name }) {
 						<History />
 						Recent Commits
 					</button>
-				</h5>
+				</p>
 			</div>
 			<div
 				id={`collapse${name}`}

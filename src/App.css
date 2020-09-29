@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 :root {
   --primary: #E50A13;
-  --secondary: #eeeeee;
-  --tertiary: #757575;
-  --bg-primary: #222222;
-  --bg-secondary: #303030
+  --secondary: #222222;
+  --tertiary: #949494;
+  --bg-primary: #eeeeee;
+  --bg-secondary: #303030;
+  --white: #fff;
+  --commit-list: rgb(235, 235, 235);
+  --highlight: #ffce52;
+  --shadow: #777;
 }
 
 body {
@@ -22,6 +28,8 @@ h4,
 h5,
 h6 {
   color: var(--primary);
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
 }
 
 ul {

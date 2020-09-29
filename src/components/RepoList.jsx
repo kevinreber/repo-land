@@ -24,7 +24,7 @@ function RepoList({ repositories }) {
 		<li className="card Repo-Card">
 			<div className="Repo-Card__Content">
 				<div className="Repo-Card__Header">
-					<h3 className="Repo-Card__Title">{repo.name}</h3>
+					<h5 className="Repo-Card__Title">{repo.name}</h5>
 					<p>{repo.description}</p>
 				</div>
 				<div className="Repo-Card__Footer">
