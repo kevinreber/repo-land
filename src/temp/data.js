@@ -39,7 +39,7 @@ export const repoData = {
 				},
 			},
 			{
-				name: 'Priam',
+				name: 'Priam2',
 				language: 'Java',
 				description:
 					'Co-Process for backup/recovery, Token Management, and Centralized Configuration management for Cassandra.',
@@ -51,7 +51,7 @@ export const repoData = {
 				},
 			},
 			{
-				name: 'Priam',
+				name: 'Priam3',
 				language: 'Java',
 				description:
 					'Co-Process for backup/recovery, Token Management, and Centralized Configuration management for Cassandra.',
