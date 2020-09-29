@@ -111,6 +111,6 @@ svg {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (min-width: 600px) {
     .Repo-List>.Repo-Card>.Repo-Card__Content {
-        padding: 1rem 3rem;
+        padding: 1rem 3rem 0 3rem;
     }
 }
