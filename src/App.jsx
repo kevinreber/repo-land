@@ -6,6 +6,7 @@ import Repositories from './pages/Repositories';
 import Header from './components/layout/Header';
 import Loader from './components/Loader';
 import ErrorMessage from './components/ErrorMessage';
+import ScrollTopArrow from './components/ScrollTopArrow';
 
 /** Hooks */
 import useAxios from './hooks/useAxios';
@@ -64,6 +65,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header avatar={ownerAvatar} organization={organization} />
+			<ScrollTopArrow />
 			<main className="Main-Body">
 				{data.error ? (
 					<ErrorMessage

@@ -1,6 +1,7 @@
 .Search-Bar {
     width: 80%;
     margin: 0 auto 2rem auto;
+    max-width: 840px;
 }
 
 #filter {

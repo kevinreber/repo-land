@@ -38,6 +38,30 @@ export const repoData = {
 					avatar_url: 'https://avatars3.githubusercontent.com/u/913567?v=4',
 				},
 			},
+			{
+				name: 'Priam',
+				language: 'Java',
+				description:
+					'Co-Process for backup/recovery, Token Management, and Centralized Configuration management for Cassandra.',
+				stargazers_count: 980,
+				forks_count: 276,
+				created_at: '2011-07-20T17:51:25Z',
+				owner: {
+					avatar_url: 'https://avatars3.githubusercontent.com/u/913567?v=4',
+				},
+			},
+			{
+				name: 'Priam',
+				language: 'Java',
+				description:
+					'Co-Process for backup/recovery, Token Management, and Centralized Configuration management for Cassandra.',
+				stargazers_count: 980,
+				forks_count: 276,
+				created_at: '2011-07-20T17:51:25Z',
+				owner: {
+					avatar_url: 'https://avatars3.githubusercontent.com/u/913567?v=4',
+				},
+			},
 		],
 	},
 };
