@@ -22,14 +22,14 @@ function App() {
 
 	// ! Use Dummy Data to limit requests to API
 	// * DUMMY DATA BELOW
-	const INITIAL_STATE = repoData;
+	// const INITIAL_STATE = repoData;
 
 	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-	// const INITIAL_STATE = {
-	// 	response: null,
-	// 	error: null,
-	// 	isLoading: true,
-	// };
+	const INITIAL_STATE = {
+		response: null,
+		error: null,
+		isLoading: true,
+	};
 
 	const [data, setData] = useState(INITIAL_STATE);
 
@@ -47,12 +47,11 @@ function App() {
 			setSearch('');
 			setOwnerAvatar('');
 			try {
-				// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-				// const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
+				const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
 				setData((data) => ({
 					...data,
-					// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-					// response: res,
+					response: res,
 				}));
 			} catch (error) {
 				setData((data) => ({

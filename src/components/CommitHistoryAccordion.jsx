@@ -30,9 +30,9 @@ const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
 function CommitHistoryAccordion({ name }) {
 	// ! Use Dummy Data to limit requests to API
 	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-	// const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=3`);
+	const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=2`);
 	// * DUMMY DATA
-	const data = commitData;
+	// const data = commitData;
 	// console.log(data);
 
 	const [commits, setCommits] = useState([]);
