@@ -12,8 +12,12 @@
     padding: 1rem;
 }
 
-.Brand,
+/* .Brand,
 .Main-Header img {
+    position: absolute;
+} */
+
+.Brand {
     position: absolute;
 }
 
@@ -55,11 +59,25 @@ h2.organization {
 }
 
 .Main-Header img {
+    display: none;
     height: 40px;
-    /* margin-right: 1rem; */
+    position: absolute;
     border-radius: 100%;
     object-fit: cover;
+    left: -3rem;
+}
+
+.Main-Header__Center {
+    position: relative;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Organization-Form {
+    position: absolute;
     right: 5%;
+    top: 1rem;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -69,6 +87,10 @@ h2.organization {
     }
 
     .Brand>.Brand-Title.device-s {
+        display: block;
+    }
+
+    .Main-Header img {
         display: block;
     }
 

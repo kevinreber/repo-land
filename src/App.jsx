@@ -31,6 +31,8 @@ function App() {
 	const [repositories, setRepositories] = useState([]);
 	const [ownerAvatar, setOwnerAvatar] = useState('');
 
+	const [search, setSearch] = useState('');
+
 	useEffect(() => {
 		function getRepoCommitData() {
 			setRepositories(
@@ -58,13 +60,23 @@ function App() {
 		}
 	}, [data, repositories]);
 
+	function searchForOrganization(data) {
+		console.log(data);
+	}
+
 	if (data.isLoading) {
 		return <Loader />;
 	}
 
 	return (
 		<div className="App">
-			<Header avatar={ownerAvatar} organization={organization} />
+			<Header
+				avatar={ownerAvatar}
+				organization={organization}
+				search={search}
+				setSearch={setSearch}
+				searchForOrg={searchForOrganization}
+			/>
 			<ScrollTopArrow />
 			<main className="Main-Body">
 				{data.error ? (
