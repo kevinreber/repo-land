@@ -86,6 +86,10 @@ svg {
     box-shadow: 0 0 8px 0 var(--highlight);
 }
 
+.Repo-List>.Repo-Card:hover .Repo-Card__Header {
+    font-weight: 500;
+}
+
 .Repo-List>.Repo-Card:hover .Repo-Card__Icons svg {
     fill: var(--primary);
 }
