@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /** Components & Helpers */
-import StarIcon from './StarIcon';
-import ForkIcon from './ForkIcon';
+import StarIcon from './icons/StarIcon';
+import ForkIcon from './icons/ForkIcon';
 import CommitHistoryAccordion from './CommitHistoryAccordion';
 import convertDate from '../helpers/convertDate';
 

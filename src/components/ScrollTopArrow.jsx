@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 /** Components */
-import ArrowIcon from './ArrowIcon';
+import ArrowIcon from './icons/ArrowIcon';
 
 /** Styles */
 import './styles/ScrollTopArrow.css';

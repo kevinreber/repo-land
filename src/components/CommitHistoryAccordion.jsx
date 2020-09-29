@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /** Components & Helpers */
-import HistoryIcon from './HistoryIcon';
+import HistoryIcon from './icons/HistoryIcon';
 import CommitList from './CommitList';
 import ErrorMessage from './ErrorMessage';
 import Loader from './Loader';
