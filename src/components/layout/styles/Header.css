@@ -12,17 +12,9 @@
     padding: 1rem;
 }
 
-/* .Brand,
-.Main-Header img {
-    position: absolute;
-} */
-
 .Brand {
+    display: none;
     position: absolute;
-}
-
-.Brand {
-    display: flex;
     margin-bottom: 0;
     left: 5%;
 }
@@ -60,38 +52,79 @@ h2.organization {
 
 .Main-Header img {
     display: none;
-    height: 40px;
+    height: 36px;
     position: absolute;
     border-radius: 100%;
     object-fit: cover;
-    left: -3rem;
 }
 
 .Main-Header__Center {
     position: relative;
     display: flex;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 0;
 }
 
 .Organization-Form {
-    position: absolute;
-    right: 5%;
-    top: 1rem;
+    flex-flow: nowrap;
+
+}
+
+.Organization-Form>input,
+.Organization-Form button {
+    height: 1.75rem;
+}
+
+.Organization-Form>input.form-control {
+    width: 60%;
+}
+
+.Organization-Form button {
+    padding-top: 0;
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (min-width: 600px) {
-    .Brand>.Brand-Title.device-xs {
-        display: none;
+
+    .Main-Header img {
+        display: block;
+    }
+
+    .Main-Header__Center>.organization {
+        margin-left: 3rem;
+    }
+
+    .Organization-Form {
+        position: absolute;
+        right: 5%;
+        top: 1rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Brand {
+        display: flex;
+    }
+
+    .Main-Header img {
+        display: block;
+        left: -3rem;
+    }
+
+    .Main-Header__Center>.organization {
+        margin-left: 0;
+    }
+
+    .Main-Header__Center {
+        margin-left: auto;
     }
 
     .Brand>.Brand-Title.device-s {
         display: block;
     }
 
-    .Main-Header img {
-        display: block;
+    .Organization-Form>input.form-control {
+        width: 70%;
+        transition: .2s;
     }
-
 }
