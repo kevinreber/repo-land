@@ -18,20 +18,22 @@ import './styles/Accordion.css';
 import { commitData } from '../temp/data';
 
 const COMMIT_BASE_URL = 'https://api.github.com/repos/Netflix';
+const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
 
 /**
- * Accordion component of Repo Card that displays the most recent 5 commits.
+ * Accordion component of Repo Card that displays the most recent 3 commits to.
  *
  * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
  *
  * @param {string} name Name of repository
  */
 function CommitHistoryAccordion({ name }) {
-	// ! Use Dummy Data to save request limit to API
-	// const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=5`);
+	// ! Use Dummy Data to limit requests to API
+	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
+	// const data = useAxios(`${COMMIT_BASE_URL}/${name}/commits?page=1&per_page=3`);
 	// * DUMMY DATA
 	const data = commitData;
-	console.log(data);
+	// console.log(data);
 
 	const [commits, setCommits] = useState([]);
 
@@ -41,7 +43,9 @@ function CommitHistoryAccordion({ name }) {
 				data.response.data.map((commit) => {
 					console.log(commit);
 					return {
-						committerAvatar: commit.committer.avatar_url,
+						committerAvatar: commit.committer.avatar_url
+							? commit.committer.avatar_url
+							: DEFAULT_AVATAR,
 						committerName: commit.committer.login,
 						message: commit.commit.message,
 						sha: commit.sha,
