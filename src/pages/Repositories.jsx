@@ -40,21 +40,24 @@ function Repositories({ repositories }) {
 
 	let Body;
 
+	// if user is using search bar, filter repositories by name
 	if (filter !== '' && sortedRepos.length !== 0) {
 		// filter repositories to display
 		const filteredRepos = sortedRepos.filter(
 			(repo) => repo.name.toLowerCase().indexOf(filter.toLowerCase()) > -1
 		);
 
+		// if no repository names match search, return NoData component
 		Body =
 			filteredRepos.length > 0 ? (
 				<RepoList repositories={filteredRepos} />
 			) : (
 				<NoData text={'repositories match'} />
 			);
-	} else if (sortedRepos && sortedRepos.length !== 0) {
+	} else if (sortedRepos.length !== 0) {
 		Body = <RepoList repositories={sortedRepos} />;
 	} else {
+		// if no data in sortedRepos
 		Body = <NoData text={'repositories'} />;
 	}
 
@@ -71,7 +74,6 @@ function Repositories({ repositories }) {
 				/>
 			</div>
 			{Body}
-			{/* <RepoList repositories={sortedRepos} /> */}
 		</div>
 	);
 }
