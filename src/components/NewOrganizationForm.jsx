@@ -22,18 +22,22 @@ function NewOrganizationForm({ value, setValue, searchForOrg }) {
 	return (
 		<>
 			<form className="form-inline my-lg-0 Organization-Form" onSubmit={search}>
-				<input
-					type="text"
-					className="form-control"
-					placeholder="Search Organizations..."
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
-					required
-				/>
-				<div className="input-group-append">
-					<button className="btn btn-outline-secondary" type="submit">
-						Search
-					</button>
+				<div className="input-group">
+					<input
+						type="text"
+						className="form-control"
+						placeholder="Search Organizations..."
+						value={value}
+						onChange={(e) => setValue(e.target.value)}
+						required
+						aria-label="Recipient's username"
+						aria-describedby="basic-addon2"
+					/>
+					<div className="input-group-append">
+						<button className="btn btn-outline-secondary" type="submit">
+							Search
+						</button>
+					</div>
 				</div>
 			</form>
 		</>

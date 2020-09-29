@@ -70,12 +70,12 @@ h2.organization {
 
 }
 
-.Organization-Form>input,
+.Organization-Form>.input-group input,
 .Organization-Form button {
     height: 1.75rem;
 }
 
-.Organization-Form>input.form-control {
+.Organization-Form>.input-group>input.form-control {
     width: 60%;
 }
 
@@ -123,7 +123,7 @@ h2.organization {
         display: block;
     }
 
-    .Organization-Form>input.form-control {
+    .Organization-Form>.input-group>input.form-control {
         width: 70%;
         transition: .2s;
     }
