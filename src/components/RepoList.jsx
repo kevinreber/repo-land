@@ -25,13 +25,6 @@ function RepoList({ repositories }) {
 			<div className="Repo-Card__Content">
 				<div className="Repo-Card__Header">
 					<h5 className="Repo-Card__Title">{repo.name}</h5>
-					<p>{repo.description}</p>
-				</div>
-				<div className="Repo-Card__Footer">
-					<div className="Repo-Card__Stats">
-						<p>Language: {repo.language}</p>
-						<p>Created: {convertDate(repo.created_at)}</p>
-					</div>
 					<div className="Repo-Card__Icons">
 						<div className="Repo-Card__Stars">
 							<StarIcon />
@@ -42,6 +35,13 @@ function RepoList({ repositories }) {
 							<p>{repo.forks_count}</p>
 						</div>
 					</div>
+				</div>
+				<div className="Repo-Card__Body">
+					<p>{repo.description}</p>
+				</div>
+				<div className="Repo-Card__Footer">
+					<p>Language: {repo.language}</p>
+					<p>Created: {convertDate(repo.created_at)}</p>
 				</div>
 			</div>
 			<CommitHistoryAccordion name={repo.name} />
