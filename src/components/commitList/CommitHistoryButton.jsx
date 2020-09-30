@@ -1,6 +1,7 @@
 /** Dependencies */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 /** Components & Helpers */
 import HistoryIcon from '../icons/HistoryIcon';
@@ -35,16 +36,26 @@ function CommitHistoryAccordion({ name, organization }) {
 	// 	// `${COMMIT_BASE_URL}/${organization}/${name}/commits?page=3&per_page=3`
 	// );
 	// * DUMMY DATA
-	const data = commitData;
+	const INITIAL_STATE = commitData;
 	// console.log(data);
 
+	// // ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
+	// const INITIAL_STATE = {
+	// 	response: null,
+	// 	error: null,
+	// 	isLoading: true,
+	// };
+
+	const [data, setData] = useState(INITIAL_STATE);
+
 	const [commits, setCommits] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [commitsPerPage] = useState(3);
 
 	useEffect(() => {
 		function setCommitData() {
 			setCommits(
 				data.response.data.map((commit) => {
-					console.log(commit);
 					return {
 						committerAvatar: commit.committer.avatar_url,
 						committerName: commit.committer.login,
@@ -61,8 +72,50 @@ function CommitHistoryAccordion({ name, organization }) {
 		}
 	}, [data]);
 
+	useEffect(() => {
+		const fetchData = async () => {
+			// Reset all state
+			setCommits([]);
+			setData(INITIAL_STATE);
+			try {
+				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
+				// const res = await axios.get(
+				// 	`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=${currentPage}&per_page=${commitsPerPage}`
+				// );
+				// setData((data) => ({
+				// 	...data,
+				// 	response: res,
+				// }));
+			} catch (error) {
+				setData((data) => ({
+					...data,
+					error,
+				}));
+			}
+			setData((data) => ({
+				...data,
+				isLoading: false,
+			}));
+		};
+
+		if (currentPage) {
+			fetchData();
+		}
+	}, []);
+
 	if (data.isLoading) {
 		return <Loader />;
+	}
+
+	// Get current commits
+	const indexOfLastCommit = currentPage * commitsPerPage;
+	const indexOfFirstCommit = indexOfLastCommit - commitsPerPage;
+	const currentCommits = commits.slice(indexOfFirstCommit, indexOfLastCommit);
+
+	function paginate(e) {
+		// e.preventDefault();
+		setCurrentPage(e);
+		console.log(e);
 	}
 
 	return (
@@ -92,7 +145,12 @@ function CommitHistoryAccordion({ name, organization }) {
 						error={data.error.response.data.message}
 					/>
 				) : (
-					<CommitList commits={commits} />
+					<CommitList
+						currentPage={currentPage}
+						// commits={commits}
+						commits={currentCommits}
+						paginate={paginate}
+					/>
 				)}
 			</div>
 		</div>

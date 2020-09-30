@@ -1,23 +1,23 @@
 import React from 'react';
 
-function Pagination({ paginate }) {
+/** Pagination for Commit List
+ * Using pageNumbers as a reference to avoid exceeding API Limit
+ */
+function Pagination({ currentPage, paginate }) {
+	const pageNumbers = [1, 2, 3];
 	return (
 		<ul className="pagination pagination-sm justify-content-center">
-			<li className="page-item disabled">
-				<a onClick={paginate} className="page-link" href="!#" tabindex="-1">
-					1
-				</a>
-			</li>
-			<li className="page-item">
-				<a onClick={paginate} className="page-link" href="!#">
-					2
-				</a>
-			</li>
-			<li className="page-item">
-				<a onClick={paginate} className="page-link" href="!#">
-					3
-				</a>
-			</li>
+			{pageNumbers.map((number) => (
+				<li className={`page-item ${currentPage === number ? 'disabled' : ''}`}>
+					<a
+						key={number}
+						onClick={() => paginate(number)}
+						className="page-link"
+						href="!#">
+						{number}
+					</a>
+				</li>
+			))}
 		</ul>
 	);
 }
