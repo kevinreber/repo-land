@@ -17,18 +17,19 @@ import './CommitList.css';
  * @param {array} commits
  */
 function CommitList({ currentPage, commits, paginate }) {
+	console.log(commits);
 	const CommitList = commits.map((commit) => (
 		<li key={commit.sha} className="Commit-Card">
 			<div className="Commit-Header">
-				<p>{commit.message}</p>
+				<p>{commit.commit.message}</p>
 			</div>
 			<div className="Commit-Body">
 				<div className="Commit-Body__Left">
-					<img src={commit.committerAvatar} alt={commit.committerName} />
+					<img src={commit.committer.avatar_url} alt={commit.committer.login} />
 				</div>
 				<div className="Commit-Body__Right">
-					<p className="username">{commit.committerName}</p>
-					<p>committed {convertDate(commit.commitDate)}</p>
+					<p className="username">{commit.committer.login}</p>
+					<p>committed {convertDate(commit.commit.committer.date)}</p>
 				</div>
 			</div>
 			<div className="Commit-Footer">

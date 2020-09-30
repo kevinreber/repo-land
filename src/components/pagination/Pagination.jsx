@@ -8,12 +8,14 @@ function Pagination({ currentPage, paginate }) {
 	return (
 		<ul className="pagination pagination-sm justify-content-center">
 			{pageNumbers.map((number) => (
-				<li className={`page-item ${currentPage === number ? 'disabled' : ''}`}>
+				<li
+					key={number}
+					className={`page-item ${currentPage === number ? 'disabled' : ''}`}>
 					<a
-						key={number}
 						onClick={() => paginate(number)}
 						className="page-link"
-						href="!#">
+						// href="!#"
+					>
 						{number}
 					</a>
 				</li>
