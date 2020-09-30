@@ -32,23 +32,19 @@ function App() {
 	// };
 
 	const [data, setData] = useState(INITIAL_STATE);
-
-	const [repositories, setRepositories] = useState([]);
 	const [ownerAvatar, setOwnerAvatar] = useState('');
-
 	const [search, setSearch] = useState('');
 
 	/** Listens when state of organization changes and fetches that organizations data */
 	useEffect(() => {
 		const fetchData = async () => {
 			// Reset all state
-			setRepositories([]);
 			setData(INITIAL_STATE);
 			setSearch('');
 			setOwnerAvatar('');
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
-				// const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+				// const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos?page=${page}&per_page=${commitsPerPage}`);
 				// setData((data) => ({
 				// 	...data,
 				// 	response: res,
@@ -69,43 +65,22 @@ function App() {
 		}
 	}, [organization]);
 
-	/** If no errors, formats data from `data.response` */
+	/** If no errors, get owner's avatar */
 	useEffect(() => {
-		function getReposData() {
-			setRepositories(
-				data.response.data.map((repo) => {
-					return {
-						id: repo.id,
-						name: repo.name,
-						language: repo.language,
-						description: repo.description,
-						stargazers_count: repo.stargazers_count,
-						forks_count: repo.forks_count,
-						created_at: repo.created_at,
-						owner_avatar_url: repo.owner.avatar_url,
-					};
-				})
-			);
-		}
-
-		if (!data.isLoading && !data.error && repositories.length === 0) {
-			getReposData();
-		}
-
 		// get owner's avatar to display in Header component
-		if (repositories.length > 0) {
-			setOwnerAvatar(repositories[0].owner_avatar_url);
+		if (data.response.data.length > 0) {
+			setOwnerAvatar(data.response.data[0].owner.avatar_url);
 		}
-	}, [data, repositories]);
+	}, [data]);
 
 	/** Changes state of organization, which will trigger the event listener
 	 * to fetch the organizations data
 	 *
 	 * @param {string} org Name of organization
 	 */
-	function searchForOrganization(org) {
+	const searchForOrganization = (org) => {
 		setOrganization(org);
-	}
+	};
 
 	if (data.isLoading) {
 		return <Loader />;
@@ -129,7 +104,7 @@ function App() {
 					/>
 				) : (
 					<Repositories
-						repositories={repositories}
+						repositories={data.response.data}
 						organization={organization}
 					/>
 				)}
