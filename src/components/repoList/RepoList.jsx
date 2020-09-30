@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 /** Components & Helpers */
 import StarIcon from '../icons/StarIcon';
 import ForkIcon from '../icons/ForkIcon';
-import CommitHistoryButton from '../commitList/CommitHistoryButton';
+import CommitToggle from '../commitList/CommitToggle';
 import Pagination from '../pagination/Pagination';
 import convertDate from '../../helpers/convertDate';
 
@@ -57,7 +57,7 @@ function RepoList({
 					<p>Created: {convertDate(repo.created_at)}</p>
 				</div>
 			</div>
-			<CommitHistoryButton name={repo.name} organization={organization} />
+			<CommitToggle name={repo.name} organization={organization} />
 		</li>
 	));
 
