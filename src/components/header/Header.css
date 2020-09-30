@@ -61,6 +61,7 @@ h2.organization {
     position: absolute;
     border-radius: 100%;
     object-fit: cover;
+    border: 1px solid var(--white);
 }
 
 .Main-Header__Center {
@@ -105,13 +106,31 @@ h2.organization {
     .Organization-Form {
         margin-left: auto;
         right: 5%;
-        /* top: 1rem; */
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .Brand {
+
+    .Brand,
+    .Organization-Form {
         display: flex;
+        flex: 1;
+    }
+
+    .Brand {
+        justify-content: center;
+    }
+
+    .Organization-Form {
+        justify-content: flex-end;
+    }
+
+    .Brand>.Brand-Title {
+        margin-right: auto;
+    }
+
+    .Organization-Form>input {
+        margin-left: auto;
     }
 
     .Main-Header img {
@@ -121,10 +140,6 @@ h2.organization {
 
     .Main-Header__Center>.organization {
         margin-left: 0;
-    }
-
-    .Main-Header__Center {
-        margin-left: auto;
     }
 
     .Brand>.Brand-Title.device-s {
