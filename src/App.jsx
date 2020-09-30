@@ -20,18 +20,10 @@ const REPO_BASE_URL = 'https://api.github.com/orgs';
 function App() {
 	const [organization, setOrganization] = useState('Netflix');
 
-	// ! Use Dummy Data to limit requests to API
-	// * DUMMY DATA BELOW
-	const INITIAL_STATE = repoData;
+	const [repositories, setRepositories] = useState(null);
+	const [error, setError] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
 
-	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-	// const INITIAL_STATE = {
-	// 	response: null,
-	// 	error: null,
-	// 	isLoading: true,
-	// };
-
-	const [data, setData] = useState(INITIAL_STATE);
 	const [ownerAvatar, setOwnerAvatar] = useState('');
 	const [search, setSearch] = useState('');
 
@@ -39,26 +31,18 @@ function App() {
 	useEffect(() => {
 		const fetchData = async () => {
 			// Reset all state
-			setData(INITIAL_STATE);
-			setSearch('');
-			setOwnerAvatar('');
+			resetState();
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
-				// const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
-				// setData((data) => ({
-				// 	...data,
-				// 	response: res,
-				// }));
+				// const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+				// setRepositories(resp);
+
+				// * USE DUMMY DATA BELOW
+				setRepositories(repoData.response);
 			} catch (error) {
-				setData((data) => ({
-					...data,
-					error,
-				}));
+				setError(error);
 			}
-			setData((data) => ({
-				...data,
-				isLoading: false,
-			}));
+			setIsLoading(false);
 		};
 		if (organization) {
 			fetchData();
@@ -68,21 +52,27 @@ function App() {
 	/** If no errors, get owner's avatar */
 	useEffect(() => {
 		// get owner's avatar to display in Header component
-		if (!data.isLoading && !data.error && data.response.data.length > 0) {
-			setOwnerAvatar(data.response.data[0].owner.avatar_url);
+		if (!isLoading && !error && repositories.data.length > 0) {
+			setOwnerAvatar(repositories.data[0].owner.avatar_url);
 		}
-	}, [data]);
+	}, [repositories]);
+
+	const resetState = () => {
+		setRepositories([]);
+		setError(null);
+		setIsLoading(true);
+		setSearch('');
+		setOwnerAvatar('');
+	};
 
 	/** Changes state of organization, which will trigger the event listener
 	 * to fetch the organizations data
 	 *
 	 * @param {string} org Name of organization
 	 */
-	const searchForOrganization = (org) => {
-		setOrganization(org);
-	};
+	const searchForOrganization = (org) => setOrganization(org);
 
-	if (data.isLoading) {
+	if (isLoading) {
 		return <Loader />;
 	}
 
@@ -97,14 +87,15 @@ function App() {
 			/>
 			<ScrollTopArrow />
 			<main className="Main-Body">
-				{data.error ? (
+				{error ? (
 					<ErrorMessage
-						status={data.error.response.status}
-						error={data.error.response.data.message}
+						status={error.response.status}
+						error={error.response.data.message}
+						variant={'repo'}
 					/>
 				) : (
 					<Repositories
-						repositories={data.response.data}
+						repositories={repositories.data}
 						organization={organization}
 					/>
 				)}
