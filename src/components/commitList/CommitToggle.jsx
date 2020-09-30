@@ -49,8 +49,8 @@ function CommitHistoryAccordion({ name, organization }) {
 				// const resp = await axios.get(
 				// 	`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=${perPage}`
 				// );
-
 				// setCommits(resp);
+
 				// * USE DUMMY DATA BELOW
 				setCommits(commitData.response);
 			} catch (error) {
@@ -75,9 +75,7 @@ function CommitHistoryAccordion({ name, organization }) {
 		currentCommits = commits.data.slice(indexOfFirstCommit, indexOfLastCommit);
 	}
 
-	function paginate(e) {
-		setCurrentPage(e);
-	}
+	const paginate = (e) => setCurrentPage(e);
 
 	return (
 		<div className="Repo-Card__Commit-Toggle">
