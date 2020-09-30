@@ -80,23 +80,23 @@ function CommitHistoryAccordion({ name, organization }) {
 	return (
 		<div className="Repo-Card__Commit-Toggle">
 			<div id={`${name}-Commit-History`} className="Commit-History">
-				<p className="mb-0">
-					<button
-						className="btn btn-link collapsed"
-						data-toggle="collapse"
-						data-target={`#collapse${name}`}
-						aria-expanded="false"
-						aria-controls={`collapse${name}`}>
-						<HistoryIcon />
-						Recent Commits
-					</button>
-				</p>
+				<button
+					className="btn btn-link collapsed"
+					data-toggle="collapse"
+					data-target={`#collapse${name}`}
+					aria-expanded="false"
+					aria-controls={`collapse${name}`}
+					data-testid="commit-list-toggle">
+					<HistoryIcon />
+					Recent Commits
+				</button>
 			</div>
 			<div
 				id={`collapse${name}`}
 				className="collapse"
 				aria-labelledby={`heading${name}`}
-				data-parent="#accordion">
+				data-parent="#accordion"
+				data-testid="commit-list-container">
 				<hr />
 				{error ? (
 					<ErrorMessage

@@ -58,7 +58,9 @@ function CommitList({ commits, currentPage, perPage, total, paginate }) {
 
 	return (
 		<>
-			<ul className="Commit-List">{CommitList}</ul>
+			<ul className="Commit-List" data-testid="commit-list">
+				{CommitList}
+			</ul>
 			<Pagination
 				currentPage={currentPage}
 				perPage={perPage}
