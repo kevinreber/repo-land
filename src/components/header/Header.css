@@ -1,5 +1,5 @@
 .Main-Header {
-    background-color: var(--bg-secondary);
+    background-color: var(--primary);
     height: 8vh;
     display: flex;
     align-items: center;
@@ -14,9 +14,14 @@
 
 .Brand {
     display: none;
-    position: absolute;
+    margin-right: auto;
     margin-bottom: 0;
     left: 5%;
+}
+
+.Brand-Title,
+.organization {
+    color: var(--white);
 }
 
 .Brand>.Brand-Title {
@@ -35,7 +40,7 @@
 }
 
 .Brand svg {
-    fill: var(--primary);
+    fill: var(--white);
     margin-top: auto;
     margin-bottom: auto;
     margin-right: .5rem;
@@ -80,6 +85,9 @@ h2.organization {
 }
 
 .Organization-Form button {
+    background-color: var(--tertiary);
+    color: var(--white);
+    border-color: var(--tertiary);
     padding-top: 0;
 }
 
@@ -95,9 +103,9 @@ h2.organization {
     }
 
     .Organization-Form {
-        position: absolute;
+        margin-left: auto;
         right: 5%;
-        top: 1rem;
+        /* top: 1rem; */
     }
 }
 

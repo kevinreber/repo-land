@@ -1,8 +1,11 @@
 import React from 'react';
 
 /**
- * Form in header used to search for other organizations
+ * Form in header used to search for other organizations.
  *
+ * @param {string}    value          State value of search bar
+ * @param {function}  setValue       Changes state of value
+ * @param {function}  searchForOrg   Callback that changes state of organization
  */
 function NewOrganizationForm({ value, setValue, searchForOrg }) {
 	function validateData(val) {

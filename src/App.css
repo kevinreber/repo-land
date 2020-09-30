@@ -42,6 +42,10 @@ input {
   outline: none;
 }
 
+input::placeholder {
+  font-style: italic;
+}
+
 .App {
   text-align: center;
   height: 100vh;

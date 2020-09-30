@@ -51,15 +51,15 @@ function CommitHistoryAccordion({ name, organization }) {
 	const [commitsPerPage] = useState(3);
 
 	useEffect(() => {
-		const fetchData = async (page) => {
+		const fetchData = async () => {
 			// Reset all state
 			setData(INITIAL_STATE);
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
 				// const res = await axios.get(
-				// 	`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=${page}&per_page=${commitsPerPage}`
+				// 	// `${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=9`
+				// 	`${COMMIT_BASE_URL}/${organization}/curator/commits?page=1&per_page=4`
 				// );
-				// console.log(res);
 				// setData((data) => ({
 				// 	...data,
 				// 	response: res,
@@ -76,8 +76,8 @@ function CommitHistoryAccordion({ name, organization }) {
 			}));
 		};
 
-		fetchData(currentPage);
-	}, [currentPage]);
+		fetchData();
+	}, []);
 
 	if (data.isLoading) {
 		return <Loader />;
@@ -86,10 +86,14 @@ function CommitHistoryAccordion({ name, organization }) {
 	// Get current commits
 	const indexOfLastCommit = currentPage * commitsPerPage;
 	const indexOfFirstCommit = indexOfLastCommit - commitsPerPage;
-	const currentCommits = data.response.data.slice(
-		indexOfFirstCommit,
-		indexOfLastCommit
-	);
+	let currentCommits;
+
+	if (!data.isLoading) {
+		currentCommits = data.response.data.slice(
+			indexOfFirstCommit,
+			indexOfLastCommit
+		);
+	}
 
 	function paginate(e) {
 		setCurrentPage(e);

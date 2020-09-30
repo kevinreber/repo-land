@@ -6,7 +6,7 @@ import Brand from './Brand';
 import NewOrganizationForm from './NewOrganizationForm';
 
 /** Styles */
-import './styles/Header.css';
+import './Header.css';
 
 /** Header Component.
  *
