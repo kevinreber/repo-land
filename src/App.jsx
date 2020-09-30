@@ -34,11 +34,15 @@ function App() {
 			resetState();
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
-				// const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
-				// setRepositories(resp);
+				// ! const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+				// ! setRepositories(resp);
+
+				// get owner's avatar to display in Header component
+				// ! setOwnerAvatar(resp.data[0].owner.avatar_url);
 
 				// * USE DUMMY DATA BELOW
 				setRepositories(repoData.response);
+				setOwnerAvatar(repoData.response.data[0].owner.avatar_url);
 			} catch (error) {
 				setError(error);
 			}
@@ -48,14 +52,6 @@ function App() {
 			fetchData();
 		}
 	}, [organization]);
-
-	/** If no errors, get owner's avatar */
-	useEffect(() => {
-		// get owner's avatar to display in Header component
-		if (!isLoading && !error && repositories.data.length > 0) {
-			setOwnerAvatar(repositories.data[0].owner.avatar_url);
-		}
-	}, [repositories]);
 
 	const resetState = () => {
 		setRepositories([]);
