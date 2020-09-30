@@ -341,32 +341,7 @@ export const commitData = {
 					},
 					message: 'Update CHANGELOG in advance of 3.1.99',
 				},
-				committer: {
-					avatar_url: 'https://avatars0.githubusercontent.com/u/63665634?v=4',
-					events_url:
-						'https://api.github.com/users/mattl-netflix/events{/privacy}',
-					followers_url: 'https://api.github.com/users/mattl-netflix/followers',
-					following_url:
-						'https://api.github.com/users/mattl-netflix/following{/other_user}',
-					gists_url:
-						'https://api.github.com/users/mattl-netflix/gists{/gist_id}',
-					gravatar_id: '',
-					html_url: 'https://github.com/mattl-netflix',
-					id: 63665634,
-					login: 'mattl-netflix',
-					node_id: 'MDQ6VXNlcjYzNjY1NjM0',
-					organizations_url: 'https://api.github.com/users/mattl-netflix/orgs',
-					received_events_url:
-						'https://api.github.com/users/mattl-netflix/received_events',
-					repos_url: 'https://api.github.com/users/mattl-netflix/repos',
-					site_admin: false,
-					starred_url:
-						'https://api.github.com/users/mattl-netflix/starred{/owner}{/repo}',
-					subscriptions_url:
-						'https://api.github.com/users/mattl-netflix/subscriptions',
-					type: 'User',
-					url: 'https://api.github.com/users/mattl-netflix',
-				},
+				committer: null,
 			},
 			{
 				sha: '2dc7d6ca4dfa46f97bebdffc5dfa53bc64928231',
@@ -556,30 +531,7 @@ export const commitData = {
 					message:
 						'Remove redundant log statements from CassandraAdmin (#903) CASS-1870 remove dead code, clean imports CASS-1870 correct typos CASS-1870 Remove noisy log statements from CassandraAdmin. All removed logs are redundant with what JMXNodeTool produces and sometimes print entire stack traces when the Exception is not a surprise (i.e., C* is not up yet)',
 				},
-				committer: {
-					avatar_url: 'https://avatars3.githubusercontent.com/u/19864447?v=4',
-					events_url: 'https://api.github.com/users/web-flow/events{/privacy}',
-					followers_url: 'https://api.github.com/users/web-flow/followers',
-					following_url:
-						'https://api.github.com/users/web-flow/following{/other_user}',
-					gists_url: 'https://api.github.com/users/web-flow/gists{/gist_id}',
-					gravatar_id: '',
-					html_url: 'https://github.com/web-flow',
-					id: 19864447,
-					login: 'web-flow',
-					node_id: 'MDQ6VXNlcjE5ODY0NDQ3',
-					organizations_url: 'https://api.github.com/users/web-flow/orgs',
-					received_events_url:
-						'https://api.github.com/users/web-flow/received_events',
-					repos_url: 'https://api.github.com/users/web-flow/repos',
-					site_admin: false,
-					starred_url:
-						'https://api.github.com/users/web-flow/starred{/owner}{/repo}',
-					subscriptions_url:
-						'https://api.github.com/users/web-flow/subscriptions',
-					type: 'User',
-					url: 'https://api.github.com/users/web-flow',
-				},
+				committer: null,
 			},
 			{
 				sha: 'kmbro8ca4dfa46f97bebdffc5dfa53bc64928231',
@@ -592,30 +544,7 @@ export const commitData = {
 					message:
 						'Remove redundant log statements from CassandraAdmin (#903) CASS-1870 remove dead code, clean imports CASS-1870 correct typos CASS-1870 Remove noisy log statements from CassandraAdmin. All removed logs are redundant with what JMXNodeTool produces and sometimes print entire stack traces when the Exception is not a surprise (i.e., C* is not up yet)',
 				},
-				committer: {
-					avatar_url: 'https://avatars3.githubusercontent.com/u/19864447?v=4',
-					events_url: 'https://api.github.com/users/web-flow/events{/privacy}',
-					followers_url: 'https://api.github.com/users/web-flow/followers',
-					following_url:
-						'https://api.github.com/users/web-flow/following{/other_user}',
-					gists_url: 'https://api.github.com/users/web-flow/gists{/gist_id}',
-					gravatar_id: '',
-					html_url: 'https://github.com/web-flow',
-					id: 19864447,
-					login: 'web-flow',
-					node_id: 'MDQ6VXNlcjE5ODY0NDQ3',
-					organizations_url: 'https://api.github.com/users/web-flow/orgs',
-					received_events_url:
-						'https://api.github.com/users/web-flow/received_events',
-					repos_url: 'https://api.github.com/users/web-flow/repos',
-					site_admin: false,
-					starred_url:
-						'https://api.github.com/users/web-flow/starred{/owner}{/repo}',
-					subscriptions_url:
-						'https://api.github.com/users/web-flow/subscriptions',
-					type: 'User',
-					url: 'https://api.github.com/users/web-flow',
-				},
+				committer: null,
 			},
 		],
 	},
