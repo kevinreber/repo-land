@@ -44,7 +44,7 @@ function App() {
 			setOwnerAvatar('');
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
-				// const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos?page=${page}&per_page=${commitsPerPage}`);
+				// const res = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
 				// setData((data) => ({
 				// 	...data,
 				// 	response: res,
@@ -68,7 +68,7 @@ function App() {
 	/** If no errors, get owner's avatar */
 	useEffect(() => {
 		// get owner's avatar to display in Header component
-		if (data.response.data.length > 0) {
+		if (!data.isLoading && !data.error && data.response.data.length > 0) {
 			setOwnerAvatar(data.response.data[0].owner.avatar_url);
 		}
 	}, [data]);
