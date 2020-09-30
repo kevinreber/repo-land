@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import StarIcon from '../icons/StarIcon';
 import ForkIcon from '../icons/ForkIcon';
 import CommitHistoryButton from '../commitList/CommitHistoryButton';
+import Pagination from '../pagination/Pagination';
 import convertDate from '../../helpers/convertDate';
 
 /** Styles */
@@ -16,10 +17,21 @@ import './RepoList.css';
  *
  * Repositories -> RepoList
  *
- * @param {array} repositories Array of repositories.
- * @param {string} organization Name of Organization.
+ * @param {array}     repositories    Array of repositories.
+ * @param {string}    organization    Name of Organization.
+ * @param {number}    currentPage	  Current Page number in pagination.
+ * @param {number}    perPage		  Number of elements to display per page in pagination.
+ * @param {number}    total           Total number of elements in repositories array.
+ * @param {function}  paginate        Sets state of current page in pagination.
  */
-function RepoList({ repositories, organization }) {
+function RepoList({
+	repositories,
+	organization,
+	currentPage,
+	perPage,
+	total,
+	paginate,
+}) {
 	/** Create Card for each repository */
 	const RepoCards = repositories.map((repo) => (
 		<li key={repo.id} className="card Repo-Card">
@@ -54,6 +66,12 @@ function RepoList({ repositories, organization }) {
 			<ul id="accordion" className="Repo-List">
 				{RepoCards}
 			</ul>
+			<Pagination
+				currentPage={currentPage}
+				perPage={perPage}
+				total={total}
+				paginate={paginate}
+			/>
 		</>
 	);
 }

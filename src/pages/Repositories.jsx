@@ -12,12 +12,15 @@ import './Repositories.css';
 /**
  * Home Page displaying list of organization's repositories sorted by star count.
  *
- * @param {array} repositories Array of repositories.
- * @param {string} organization Name of Organization.
+ * @param {array}    repositories   Array of repositories.
+ * @param {string}   organization   Name of Organization.
  */
 function Repositories({ repositories, organization }) {
 	const [sortedRepos, setSortedRepos] = useState([]);
 	const [filter, setFilter] = useState('');
+
+	const [currentPage, setCurrentPage] = useState(1);
+	const [reposPerPage] = useState(10);
 
 	useEffect(() => {
 		/** Sorts Repos by stargazers_count */
@@ -42,6 +45,15 @@ function Repositories({ repositories, organization }) {
 
 	let Body;
 
+	// Get current repos
+	const indexOfLastRepo = currentPage * reposPerPage;
+	const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
+	const currentRepos = sortedRepos.slice(indexOfFirstRepo, indexOfLastRepo);
+
+	function paginate(e) {
+		setCurrentPage(e);
+	}
+
 	// if user is using search bar, filter repositories by name
 	if (filter !== '' && sortedRepos.length !== 0) {
 		// filter repositories to display
@@ -52,12 +64,27 @@ function Repositories({ repositories, organization }) {
 		// if no repository names match search, return NoData component
 		Body =
 			filteredRepos.length > 0 ? (
-				<RepoList repositories={filteredRepos} organization={organization} />
+				<RepoList
+					repositories={filteredRepos}
+					organization={organization}
+					perPage={reposPerPage}
+					total={filteredRepos.length}
+					paginate={paginate}
+				/>
 			) : (
 				<NoData text={'repositories match'} />
 			);
 	} else if (sortedRepos.length !== 0) {
-		Body = <RepoList repositories={sortedRepos} organization={organization} />;
+		Body = (
+			<RepoList
+				repositories={currentRepos}
+				organization={organization}
+				currentPage={currentPage}
+				perPage={reposPerPage}
+				total={sortedRepos.length}
+				paginate={paginate}
+			/>
+		);
 	} else {
 		// if no data in sortedRepos
 		Body = <NoData text={'repositories'} />;
