@@ -37,7 +37,6 @@ function CommitHistoryAccordion({ name, organization }) {
 	// );
 	// * DUMMY DATA
 	const INITIAL_STATE = commitData;
-	// console.log(data);
 
 	// // ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
 	// const INITIAL_STATE = {
@@ -48,24 +47,12 @@ function CommitHistoryAccordion({ name, organization }) {
 
 	const [data, setData] = useState(INITIAL_STATE);
 
-	// const [commits, setCommits] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [commitsPerPage] = useState(3);
-
-	// useEffect(() => {
-	// 	function setCommitData() {
-	// 		setCommits(data.response.data);
-	// 	}
-
-	// 	if (!data.isLoading && !data.error && commits.length === 0) {
-	// 		setCommitData();
-	// 	}
-	// }, [data]);
 
 	useEffect(() => {
 		const fetchData = async (page) => {
 			// Reset all state
-			// setCommits([]);
 			setData(INITIAL_STATE);
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
@@ -89,9 +76,7 @@ function CommitHistoryAccordion({ name, organization }) {
 			}));
 		};
 
-		// if (currentPage) {
 		fetchData(currentPage);
-		// }
 	}, [currentPage]);
 
 	if (data.isLoading) {
