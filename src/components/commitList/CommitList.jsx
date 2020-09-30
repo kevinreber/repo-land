@@ -16,7 +16,7 @@ import './CommitList.css';
  *
  * @param {array} commits
  */
-function CommitList({ currentPage, commits, paginate }) {
+function CommitList({ currentPage, perPage, total, commits, paginate }) {
 	console.log(commits);
 	const CommitList = commits.map((commit) => (
 		<li key={commit.sha} className="Commit-Card">
@@ -44,7 +44,12 @@ function CommitList({ currentPage, commits, paginate }) {
 	return (
 		<>
 			<ul className="Commit-List">{CommitList}</ul>
-			<Pagination currentPage={currentPage} paginate={paginate} />
+			<Pagination
+				currentPage={currentPage}
+				perPage={perPage}
+				total={total}
+				paginate={paginate}
+			/>
 		</>
 	);
 }

@@ -124,6 +124,8 @@ function CommitHistoryAccordion({ name, organization }) {
 				) : (
 					<CommitList
 						currentPage={currentPage}
+						perPage={commitsPerPage}
+						total={data.response.data.length}
 						commits={currentCommits}
 						paginate={paginate}
 					/>
