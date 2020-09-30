@@ -21,7 +21,7 @@ const COMMIT_BASE_URL = 'https://api.github.com/repos';
 const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
 
 /**
- * Accordion component of Repo Card that displays the most recent 3 commits to.
+ * Accordion component of Repo Card that displays the most recent 9 commits.
  *
  * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
  *
@@ -32,7 +32,7 @@ function CommitHistoryAccordion({ name, organization }) {
 	// ! Use Dummy Data to limit requests to API
 	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
 	// const data = useAxios(
-	// 	// `${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=3`
+	// 	// `${COMMIT_BASE_URL}/${organization}/${name}/commits?page=3&per_page=3`
 	// );
 	// * DUMMY DATA
 	const data = commitData;

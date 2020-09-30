@@ -2,7 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/** Helpers */
+/** Components & Helpers */
+import Pagination from '../pagination/Pagination';
 import convertDate from '../../helpers/convertDate';
 
 /** Styles */
@@ -39,9 +40,15 @@ function CommitList({ commits }) {
 		</li>
 	));
 
+	function paginate(e) {
+		console.log(e);
+		e.preventDefault();
+	}
+
 	return (
 		<>
 			<ul className="Commit-List">{CommitList}</ul>
+			<Pagination paginate={paginate} />
 		</>
 	);
 }

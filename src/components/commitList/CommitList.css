@@ -1,12 +1,24 @@
 /********************************* */
 /** COMMIT LIST                    *
 /********************************* */
-.collapse,
-.collapse.show,
 .collapsing {
-    background-color: var(--commit-list);
+    background-color: var(--white);
+}
+
+.collapse,
+.collapse.show {
+    /* background-color: var(--commit-list); */
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+}
+
+.page-link {
+    color: var(--primary);
+}
+
+.page-link:hover {
+    color: var(--primary);
+    font-weight: bold;
 }
 
 /********************************* */
@@ -20,7 +32,7 @@
 }
 
 .Commit-List>.Commit-Card:hover {
-    background-color: var(--highlight-light);
+    background-color: var(--white);
 }
 
 .Commit-List>.Commit-Card:hover .Commit-Footer>p {
