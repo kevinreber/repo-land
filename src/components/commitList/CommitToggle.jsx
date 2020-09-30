@@ -9,20 +9,18 @@ import CommitList from './CommitList';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Loader from '../loader/Loader';
 
-/** Hooks */
-import useAxios from '../../hooks/useAxios';
-
 /** Styles */
-import './CommitHistoryButton.css';
+import './CommitToggle.css';
 
-// TEMP - Dummy Data
+// * TEMP - Dummy Data
 import { commitData } from '../../temp/data';
 
 const COMMIT_BASE_URL = 'https://api.github.com/repos';
-const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
 
 /**
- * Accordion component of Repo Card that displays the most recent 9 commits.
+ * Accordion component of Repo Card that displays the most recent 6 commits.
+ * ! To avoid going over request limit, request is only calling for last 6 recent commits.
+ * ! Number of commits requested can be changed using the `perPage` variable
  *
  * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
  *
@@ -30,22 +28,12 @@ const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
  * @param {string} organization Name of Organization.
  */
 function CommitHistoryAccordion({ name, organization }) {
-	// ! Use Dummy Data to limit requests to API
-	// ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-	// const data = useAxios(
-	// 	// `${COMMIT_BASE_URL}/${organization}/${name}/commits?page=3&per_page=3`
-	// );
-	// * DUMMY DATA
-	const INITIAL_STATE = commitData;
+	// Limits how many commits are requested
+	const perPage = 6;
 
-	// // ! COMMENT OUT LINE BELOW IF USING DUMMY DATA
-	// const INITIAL_STATE = {
-	// 	response: null,
-	// 	error: null,
-	// 	isLoading: true,
-	// };
-
-	const [data, setData] = useState(INITIAL_STATE);
+	const [commits, setCommits] = useState([]);
+	const [error, setError] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const [currentPage, setCurrentPage] = useState(1);
 	const [commitsPerPage] = useState(3);
@@ -53,46 +41,38 @@ function CommitHistoryAccordion({ name, organization }) {
 	useEffect(() => {
 		const fetchData = async () => {
 			// Reset all state
-			setData(INITIAL_STATE);
+			setCommits([]);
+			setError(null);
+			setIsLoading(true);
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
-				// const res = await axios.get(
-				// 	// `${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=9`
-				// 	`${COMMIT_BASE_URL}/${organization}/curator/commits?page=1&per_page=4`
+				// const resp = await axios.get(
+				// 	`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=${perPage}`
 				// );
-				// setData((data) => ({
-				// 	...data,
-				// 	response: res,
-				// }));
+
+				// setCommits(resp);
+				// * USE DUMMY DATA BELOW
+				setCommits(commitData.response);
 			} catch (error) {
-				setData((data) => ({
-					...data,
-					error,
-				}));
+				setError(error);
 			}
-			setData((data) => ({
-				...data,
-				isLoading: false,
-			}));
+			setIsLoading(false);
 		};
 
 		fetchData();
 	}, []);
 
-	if (data.isLoading) {
+	if (isLoading) {
 		return <Loader />;
 	}
 
-	// Get current commits
+	// Get current commits to pass into pagination
 	const indexOfLastCommit = currentPage * commitsPerPage;
 	const indexOfFirstCommit = indexOfLastCommit - commitsPerPage;
 	let currentCommits;
 
-	if (!data.isLoading) {
-		currentCommits = data.response.data.slice(
-			indexOfFirstCommit,
-			indexOfLastCommit
-		);
+	if (!isLoading && !error && commits.data.length > 0) {
+		currentCommits = commits.data.slice(indexOfFirstCommit, indexOfLastCommit);
 	}
 
 	function paginate(e) {
@@ -120,16 +100,16 @@ function CommitHistoryAccordion({ name, organization }) {
 				aria-labelledby={`heading${name}`}
 				data-parent="#accordion">
 				<hr />
-				{data.error ? (
+				{error ? (
 					<ErrorMessage
-						status={data.error.response.status}
-						error={data.error.response.data.message}
+						status={error.response.status}
+						error={error.response.data.message}
 					/>
 				) : (
 					<CommitList
 						currentPage={currentPage}
 						perPage={commitsPerPage}
-						total={data.response.data.length}
+						total={commits.data.length}
 						commits={currentCommits}
 						paginate={paginate}
 					/>
