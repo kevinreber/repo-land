@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 /** Components & Routes */
-import Repositories from './pages/Repositories';
+import Repositories from './components/repositories/Repositories';
 import Header from './components/header/Header';
 import Loader from './components/loader/Loader';
 import ErrorMessage from './components/errorMessage/ErrorMessage';
@@ -17,6 +17,9 @@ import './App.css';
 
 const REPO_BASE_URL = 'https://api.github.com/orgs';
 
+/**
+ * App -> Repositories -> RepoList -> Commits -> CommitList
+ */
 function App() {
 	const [organization, setOrganization] = useState('Netflix');
 
@@ -34,11 +37,11 @@ function App() {
 			resetState();
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
-				// ! const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
-				// ! setRepositories(resp);
+				//  const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+				//  setRepositories(resp);
 
 				// get owner's avatar to display in Header component
-				// ! setOwnerAvatar(resp.data[0].owner.avatar_url);
+				//  setOwnerAvatar(resp.data[0].owner.avatar_url);
 
 				// * USE DUMMY DATA BELOW
 				setRepositories(repoData.response);

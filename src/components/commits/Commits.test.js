@@ -5,23 +5,23 @@ import {
 	getByText,
 	waitForElement,
 } from '@testing-library/react';
-import CommitToggle from './CommitToggle';
+import Commits from './Commits';
 
-describe('<CommitToggle />', () => {
+describe('<Commits />', () => {
 	it('should render without crashing', () => {
-		render(<CommitToggle name={'curator'} organization={'Netflix'} />);
+		render(<Commits name={'curator'} organization={'Netflix'} />);
 	});
 
 	it('should select button by test ID ', () => {
 		const { getByTestId } = render(
-			<CommitToggle name={'curator'} organization={'Netflix'} />
+			<Commits name={'curator'} organization={'Netflix'} />
 		);
 		const button = getByTestId('commit-list-toggle');
 	});
 
 	it('should have class "collapsed"', () => {
 		const { getByTestId } = render(
-			<CommitToggle name={'curator'} organization={'Netflix'} />
+			<Commits name={'curator'} organization={'Netflix'} />
 		);
 		const commitList = getByTestId('commit-list-container');
 		const button = getByTestId('commit-list-toggle');

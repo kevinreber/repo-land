@@ -5,12 +5,12 @@ import axios from 'axios';
 
 /** Components & Helpers */
 import HistoryIcon from '../icons/HistoryIcon';
-import CommitList from './CommitList';
+import CommitList from '../commitList/CommitList';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Loader from '../loader/Loader';
 
 /** Styles */
-import './CommitToggle.css';
+import './Commits.css';
 
 // * TEMP - Dummy Data
 import { commitData } from '../../temp/data';
@@ -22,12 +22,12 @@ const COMMIT_BASE_URL = 'https://api.github.com/repos';
  * ! To avoid going over request limit, request is only calling for last 6 recent commits.
  * ! Number of commits requested can be changed using the `perPage` variable
  *
- * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
+ * Repositories -> RepoList -> Commits -> CommitList
  *
  * @param {string} name Name of repository.
  * @param {string} organization Name of Organization.
  */
-function CommitHistoryAccordion({ name, organization }) {
+function Commits({ name, organization }) {
 	// Limits how many commits are requested
 	const perPage = 6;
 
@@ -117,8 +117,8 @@ function CommitHistoryAccordion({ name, organization }) {
 	);
 }
 
-CommitHistoryAccordion.propTypes = {
+Commits.propTypes = {
 	name: PropTypes.string.isRequired,
 };
 
-export default CommitHistoryAccordion;
+export default Commits;

@@ -3,14 +3,16 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /** Components & Helpers */
-import RepoList from '../components/repoList/RepoList';
-import NoData from '../components/noData/NoData';
+import RepoList from '../repoList/RepoList';
+import NoData from '../noData/NoData';
 
 /** Styles */
 import './Repositories.css';
 
 /**
  * Home Page displaying list of organization's repositories sorted by star count.
+ *
+ * Repositories -> RepoList -> Commits -> CommitList
  *
  * @param {array}    repositories   Array of repositories.
  * @param {string}   organization   Name of Organization.

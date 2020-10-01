@@ -14,7 +14,7 @@ const DEFAULT_AVATAR = 'https://github.com/identicons/jasonlong.png';
 /**
  * Creates Card for each commit passed into commits
  *
- * Repositories -> RepoList -> CommitHistoryAccordion -> CommitList
+ * Repositories -> RepoList -> Commits -> CommitList
  *
  * @param {array}     commits         Array of repository commits.
  * @param {number}    currentPage	  Current Page number in pagination.

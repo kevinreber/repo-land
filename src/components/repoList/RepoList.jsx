@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 /** Components & Helpers */
 import StarIcon from '../icons/StarIcon';
 import ForkIcon from '../icons/ForkIcon';
-import CommitToggle from '../commitList/CommitToggle';
+import Commits from '../commits/Commits';
 import Pagination from '../pagination/Pagination';
 import convertDate from '../../helpers/convertDate';
 
@@ -15,7 +15,7 @@ import './RepoList.css';
 /**
  * Creates a List that displays data for each repository in repositories.
  *
- * Repositories -> RepoList
+ * Repositories -> RepoList -> Commits -> CommitList
  *
  * @param {array}     repositories    Array of repositories.
  * @param {string}    organization    Name of Organization.
@@ -57,7 +57,7 @@ function RepoList({
 					<p>Created: {convertDate(repo.created_at)}</p>
 				</div>
 			</div>
-			<CommitToggle name={repo.name} organization={organization} />
+			<Commits name={repo.name} organization={organization} />
 		</li>
 	));
 
