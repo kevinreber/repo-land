@@ -61,7 +61,6 @@ h2.organization {
     position: absolute;
     border-radius: 100%;
     object-fit: cover;
-    border: 1px solid var(--white);
 }
 
 .Main-Header__Center {
