@@ -1,4 +1,8 @@
+/** Dependencies */
 import React from 'react';
+
+/** Styles */
+import './Pagination.css';
 
 /** Pagination List
  *

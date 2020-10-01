@@ -54,6 +54,7 @@ input::placeholder {
 
 .Main-Body__Content {
   margin-top: 12vh;
+  margin-bottom: 10ch;
   margin-right: auto;
   margin-left: auto;
   width: 100%;
