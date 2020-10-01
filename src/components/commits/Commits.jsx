@@ -60,7 +60,7 @@ function Commits({ name, organization }) {
 		};
 
 		fetchData();
-	}, []);
+	}, [organization, name]);
 
 	if (isLoading) {
 		return <Loader />;
