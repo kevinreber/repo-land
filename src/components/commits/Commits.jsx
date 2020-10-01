@@ -46,13 +46,13 @@ function Commits({ name, organization }) {
 			setIsLoading(true);
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING PLACEHOLDER DATA
-				// const resp = await axios.get(
-				// 	`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=${perPage}`
-				// );
-				// setCommits(resp);
+				const resp = await axios.get(
+					`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=${perPage}`
+				);
+				setCommits(resp);
 
 				// * USE PLACEHOLDER DATA BELOW
-				setCommits(commitData.response);
+				// setCommits(commitData.response);
 			} catch (error) {
 				setError(error);
 			}

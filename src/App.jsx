@@ -37,15 +37,15 @@ function App() {
 			resetState();
 			try {
 				// ! COMMENT OUT LINES BELOW IF USING PLACEHOLDER DATA
-				//  const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
-				//  setRepositories(resp);
+				const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+				setRepositories(resp);
 
 				// get owner's avatar to display in Header component
-				//  setOwnerAvatar(resp.data[0].owner.avatar_url);
+				setOwnerAvatar(resp.data[0].owner.avatar_url);
 
 				// * USE PLACEHOLDER DATA BELOW
-				setRepositories(repoData.response);
-				setOwnerAvatar(repoData.response.data[0].owner.avatar_url);
+				// setRepositories(repoData.response);
+				// setOwnerAvatar(repoData.response.data[0].owner.avatar_url);
 			} catch (error) {
 				setError(error);
 			}
