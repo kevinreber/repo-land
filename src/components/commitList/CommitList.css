@@ -7,7 +7,6 @@
 
 .collapse,
 .collapse.show {
-    /* background-color: var(--commit-list); */
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
@@ -51,19 +50,25 @@
     border-bottom: 1px solid var(--tertiary);
 }
 
-.Commit-List>.Commit-Card>.Commit-Body {
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Body {
     display: flex;
     align-items: center;
+    padding-right: 1rem;
     margin-bottom: .5rem;
 }
 
-.Commit-List>.Commit-Card>.Commit-Body .username {
+.Commit-List>.Commit-Card>.Commit-Content {
+    display: flex;
+    flex-direction: column;
+}
+
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Body .username {
     color: var(--primary);
     font-weight: 600;
     margin-right: .5rem;
 }
 
-.Commit-List>.Commit-Card>.Commit-Body p {
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Body p {
     margin: 0;
 }
 
@@ -72,7 +77,7 @@
     font-weight: bold;
 }
 
-.Commit-List>.Commit-Card>.Commit-Body>.Commit-Body__Left {
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Body>.Commit-Body__Left {
     margin-right: 1rem;
 }
 
@@ -81,18 +86,20 @@
     width: 2rem;
 }
 
-.Commit-List>.Commit-Card>.Commit-Footer {
-    font-size: x-small;
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Footer {
+    margin-top: auto;
+    font-size: small;
     text-align: start;
 }
 
-.Commit-List>.Commit-Card>.Commit-Body p,
-.Commit-List>.Commit-Card>.Commit-Footer {
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Body p,
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Footer {
     font-style: italic;
 }
 
-.Commit-List>.Commit-Card>.Commit-Footer>p {
+.Commit-List>.Commit-Card>.Commit-Content>.Commit-Footer>p {
     color: var(--shadow);
+    margin-bottom: .5rem;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -102,16 +109,25 @@
         padding: 1rem 3rem;
     }
 
-    .Commit-List>.Commit-Card>.Commit-Body {
+    .Commit-List>.Commit-Card>.Commit-Content>.Commit-Body {
         font-size: 16px;
     }
 
-    .Commit-List>.Commit-Card>.Commit-Body>.Commit-Body__Left>img {
+    .Commit-List>.Commit-Card>.Commit-Content>.Commit-Body>.Commit-Body__Left>img {
         width: 3rem;
     }
 
-    .Commit-List>.Commit-Card>.Commit-Footer {
+    .Commit-List>.Commit-Card>.Commit-Content>.Commit-Footer {
         font-size: 14px;
         text-align: end;
+        margin-top: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    .Commit-List>.Commit-Card>.Commit-Content {
+        flex-direction: row;
+        justify-content: space-between;
     }
 }

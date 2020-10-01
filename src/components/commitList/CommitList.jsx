@@ -37,20 +37,22 @@ function CommitList({ commits, currentPage, perPage, total, paginate }) {
 				<div className="Commit-Header">
 					<p>{commit.commit.message}</p>
 				</div>
-				<div className="Commit-Body">
-					<div className="Commit-Body__Left">
-						<img src={committer.avatar} alt={committer.name} />
+				<div className="Commit-Content">
+					<div className="Commit-Body">
+						<div className="Commit-Body__Left">
+							<img src={committer.avatar} alt={committer.name} />
+						</div>
+						<div className="Commit-Body__Right">
+							<p className="username">{committer.name}</p>
+							<p>committed {convertDate(commit.commit.committer.date)}</p>
+						</div>
 					</div>
-					<div className="Commit-Body__Right">
-						<p className="username">{committer.name}</p>
-						<p>committed {convertDate(commit.commit.committer.date)}</p>
+					<div className="Commit-Footer">
+						<p>
+							commit:
+							<span className="Commit-Hash"> {commit.sha}</span>
+						</p>
 					</div>
-				</div>
-				<div className="Commit-Footer">
-					<p>
-						commit:
-						<span className="Commit-Hash"> {commit.sha}</span>
-					</p>
 				</div>
 			</li>
 		);
