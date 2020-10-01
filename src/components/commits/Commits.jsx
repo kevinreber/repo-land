@@ -12,7 +12,7 @@ import Loader from '../loader/Loader';
 /** Styles */
 import './Commits.css';
 
-// * TEMP - Dummy Data
+// * TEMP - Placeholder Data
 import { commitData } from '../../temp/data';
 
 const COMMIT_BASE_URL = 'https://api.github.com/repos';
@@ -45,13 +45,13 @@ function Commits({ name, organization }) {
 			setError(null);
 			setIsLoading(true);
 			try {
-				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
+				// ! COMMENT OUT LINES BELOW IF USING PLACEHOLDER DATA
 				// const resp = await axios.get(
 				// 	`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=${perPage}`
 				// );
 				// setCommits(resp);
 
-				// * USE DUMMY DATA BELOW
+				// * USE PLACEHOLDER DATA BELOW
 				setCommits(commitData.response);
 			} catch (error) {
 				setError(error);

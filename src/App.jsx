@@ -9,7 +9,7 @@ import Loader from './components/loader/Loader';
 import ErrorMessage from './components/errorMessage/ErrorMessage';
 import ScrollTopArrow from './components/scrollTopArrow/ScrollTopArrow';
 
-// TEMP - Dummy Data
+// TEMP - Placeholder Data
 import { repoData } from './temp/data';
 
 /** Styles */
@@ -36,14 +36,14 @@ function App() {
 			// Reset all state
 			resetState();
 			try {
-				// ! COMMENT OUT LINES BELOW IF USING DUMMY DATA
+				// ! COMMENT OUT LINES BELOW IF USING PLACEHOLDER DATA
 				//  const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
 				//  setRepositories(resp);
 
 				// get owner's avatar to display in Header component
 				//  setOwnerAvatar(resp.data[0].owner.avatar_url);
 
-				// * USE DUMMY DATA BELOW
+				// * USE PLACEHOLDER DATA BELOW
 				setRepositories(repoData.response);
 				setOwnerAvatar(repoData.response.data[0].owner.avatar_url);
 			} catch (error) {

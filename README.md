@@ -39,9 +39,37 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ---
 
-## Dummy Data
+## Placeholder Data
 
-To avoid exceeding Github API's rate limit, dummy data for repositories and commits can be accessed in [`src/temp/data.js`](src/temp/data.js) <br/>
+To avoid exceeding Github API's rate limit, I provided some placeholder data for repositories and commits that can be accessed in [`src/temp/data.js`](src/temp/data.js) <br/>
+
+Comments are provided where AJAX calls are made and can be switched with the placeholder data provided.
+
+[`src/App.jsx`](src/App.jsx)
+
+```
+// ! COMMENT OUT LINES BELOW IF USING PLACEHOLDER DATA
+const resp = await axios.get(`${REPO_BASE_URL}/${organization}/repos`);
+setRepositories(resp);
+
+// get owner's avatar to display in Header component
+setOwnerAvatar(resp.data[0].owner.avatar_url);
+
+// * USE PLACEHOLDER DATA BELOW
+setRepositories(repoData.response);
+setOwnerAvatar(repoData.response.data[0].owner.avatar_url);
+```
+
+[`src/components/commits/Commits.jsx`](src/components/commits/Commits.jsx)
+
+```
+// ! COMMENT OUT LINES BELOW IF USING PLACEHOLDER DATA
+const resp = await axios.get(`${COMMIT_BASE_URL}/${organization}/${name}/commits?page=1&per_page=${perPage}`);
+setCommits(resp);
+
+// * USE PLACEHOLDER DATA BELOW
+setCommits(commitData.response);
+```
 
 ---
 
