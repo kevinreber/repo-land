@@ -10,7 +10,7 @@ import ErrorMessage from './components/errorMessage/ErrorMessage';
 import ScrollTopArrow from './components/scrollTopArrow/ScrollTopArrow';
 
 // TEMP - Placeholder Data
-import { repoData } from './temp/data';
+// import { repoData } from './temp/data';
 
 /** Styles */
 import './App.css';

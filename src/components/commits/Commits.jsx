@@ -13,7 +13,7 @@ import Loader from '../loader/Loader';
 import './Commits.css';
 
 // * TEMP - Placeholder Data
-import { commitData } from '../../temp/data';
+// import { commitData } from '../../temp/data';
 
 const COMMIT_BASE_URL = 'https://api.github.com/repos';
 
