@@ -1,4 +1,11 @@
 <h1 align="center">Repo Land </h1>
+
+<div align='center'>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/72356d54-00b0-49c6-95c7-9e8a7c628d16/deploy-status)](https://app.netlify.com/sites/suspicious-knuth-590f2a/deploys)
+
+</div>
+
 <p align="center">Welcome to Repo Land! View all of your favorite organization's repositories! </p>
 <img src="./gif/repo-land.gif" alt="logo"/>
 
